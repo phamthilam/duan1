@@ -4,10 +4,117 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/binhluan.php";
 include "../model/sanpham.php";
+include "../model/voucher.php";
+include "../model/dangky.php";
+include "../model/donhang.php";
 
 if (isset($_GET['act'])) {
     $act=$_GET['act'];
     switch ($act) {
+        case 'listdh':
+            
+            $listdonhang=loadall_donhang();
+            
+            include "donhang/list.php";
+
+        break;
+        case 'xoabill':
+            
+            if(isset($_GET['id'])&&($_GET['id']>0)){
+                delete_donhang($_GET['id']);
+              }
+              $listdonhang=loadall_donhang();
+            
+            include "donhang/list.php";
+
+        break;
+        case 'suabill':
+            if(isset($_GET['id'])&&($_GET['id']>0)){
+                
+                $dh=loadone_donhang($_GET['id']);
+              }
+              $listpttt=loadall_pttt();
+              $listtrangthai=loadall_trangthaidh();
+              $listmgg=loadall_mgg();
+            include "donhang/update.php";
+
+        break;
+        case 'updatedh':
+            if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                $id=$_POST['id'];
+                $id_user=$_POST['id_user'];
+                $bill_name=$_POST['bill_name'];
+                $bill_diachi=$_POST['bill_diachi'];
+                $bill_sdt=$_POST['bill_sdt'];
+                $bill_email=$_POST['bill_email'];
+                $id_pttt=$_POST['idpttt'];
+                $id_trangthai=$_POST['idtrangthai'];
+                $ngaydathang=$_POST['ngaydathang'];
+                $total=$_POST['total'];
+                $magiamgia=$_POST['magiamgia'];
+                
+                update_donhang($id,$id_user,$bill_name,$bill_diachi,$bill_sdt,$bill_email,$id_pttt,$id_trangthai,$ngaydathang,$total,$magiamgia);
+                $thongbao="Cập nhật thành công";
+            }
+            $listdonhang=loadall_donhang();
+            include "donhang/list.php";
+
+        break;
+        case 'addvc':
+            if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+                $name_magg=$_POST['name_magg'];
+                $giamgia=$_POST['giamgia'];
+                $end_date=$_POST['end_date'];
+                $soluong=$_POST['soluong'];
+                insert_voucher($name_magg,$giamgia,$end_date,$soluong);
+                $thongbao="Thêm mới thành công";
+            }
+            include "voucher/add.php";  
+
+        break;
+        case 'listvc':
+            
+            $listvoucher=loadall();
+            include "voucher/list.php";
+
+        break;
+        case 'xoavc':
+            if(isset($_GET['id'])&&($_GET['id']>0)){
+                delete_voucher($_GET['id']);
+              }
+              $listvoucher=loadall();
+            include "voucher/list.php";
+
+        break;
+        case 'listdangky':
+            
+            $listdangky=loadall_dangky();
+            include "dangky/list.php";
+
+        break;
+        case 'xoadk':
+            if(isset($_GET['id'])&&($_GET['id']>0)){
+                delete_dangky($_GET['id']);
+              }
+              $listdangky=loadall_dangky();
+            include "dangky/list.php";
+
+        break;
+        case 'listlh':
+            $sql="select * from lienhe order by lh_name";
+            $listlienhe=pdo_query($sql);
+            include "lienhe/list.php";
+
+        break;
+        case 'xoalh':
+            if(isset($_GET['id'])&&($_GET['id']>0)){
+               $sql="delete from lienhe where id=".$_GET['id'];
+               pdo_execute($sql);
+              }
+              $sql="select * from lienhe order by lh_name";
+              $listlienhe=pdo_query($sql);
+            include "lienhe/list.php";
+            break;
         case 'adddm':
             if (isset($_POST['themdanhmuc']) && $_POST['themdanhmuc']) {
                 $tenloai=$_POST['tenloai'];

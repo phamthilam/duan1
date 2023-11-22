@@ -80,10 +80,11 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang khác</a>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Voucher</a>
-                                    <a href="#" class="dropdown-item">Đơn hàng</a>
-                                    <a href="#" class="dropdown-item">User</a>
-                                    <a href="#" class="dropdown-item">liên hệ</a>
+                                    <a href="index.php?act=addvc" class="dropdown-item">Voucher</a>
+                                    <a href="index.php?act=listdh" class="dropdown-item">Đơn hàng</a>
+                                    <a href="index.php?act=listdangky" class="dropdown-item">User</a>
+                                    <a href="index.php?act=listlh" class="dropdown-item">liên hệ</a>
+                                    <a href="index.php?act=listbl" class="dropdown-item">bình luận</a>
                                 </div>
                             </div>
                             

@@ -23,6 +23,13 @@ function loadall_sanpham(){
     $listsanpham=pdo_query($sql);
     return $listsanpham;
 }
+function load_sanpham_top10(){
+    $sql="select * from sanpham join spbienthe on sanpham.id=spbienthe.id_sp 
+    join sizesp on sizesp.idsize=spbienthe.id_size
+    join mausp on mausp.idmau=spbienthe.id_mau where is_delete=0 order by luotxem desc limit 0,10";
+    $sanphamtop10=pdo_query($sql);
+    return $sanphamtop10;
+}
 function loadone_sanpham($id){
     $sql="select * from sanpham join spbienthe on sanpham.id=spbienthe.id_sp 
     join sizesp on sizesp.idsize=spbienthe.id_size
@@ -49,5 +56,6 @@ function update_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm,$idsize,$id
     pdo_execute($sql);
 }
     }
+    
    
 ?>

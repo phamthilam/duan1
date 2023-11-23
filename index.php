@@ -2,19 +2,32 @@
 include "view/header.php";
 include "model/pdo.php";
 include "model/dangky.php";
-
+include "model/danhmuc.php";
 include "model/sanpham.php";
 
 $sphome= loadall_sanpham();
 $sptop10=load_sanpham_top10();
+
 if (isset($_GET['act'])&&($_GET['act']!="")) {
     $act=$_GET['act'];
     switch ($act) {
          case 'sanpham':
+                $listdm=loadall_danhmuc();
+                $sphome= loadall_sanpham();
+                $sptop10=load_sanpham_top10();
                 include "view/product-list.php";
                 break;
         case 'sanphamct':
-            include "view/product-detail.php";
+            if (isset($_GET['idsp'])&& ($_GET['idsp']>0) ) {
+                $id=$_GET['idsp'];
+                $sp=loadone_sanpham($id);  
+                $listsize=loadall_size();
+                $listmau=loadall_mau();
+                include "view/product-detail.php";
+            } else {
+                include "view/trangchu.php";
+            }
+          
             break;
         case 'dangky':
             if(isset($_POST['dangky'])&&($_POST['dangky'])){

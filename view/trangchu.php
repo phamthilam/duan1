@@ -119,13 +119,13 @@
                     <div class="col-lg-3">
                                 <div class="product-item">
                                     <div class="product-image">
-                                        <a href="product-detail.php">
+                                        <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>">
                                             <img src="upload/<?php echo $sp['img']?>" alt="Product Image" height="240px">
                                         </a>
                                         <div class="product-action">
                                             <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
                                             <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a href="product-detail.php"><i class="fa fa-search"></i></a>
+                                            <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><i class="fa fa-search"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">

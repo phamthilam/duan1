@@ -22,12 +22,12 @@
                         <div class="row align-items-center product-detail-top">
                             <div class="col-md-5">
                                 <div class="product-slider-single">
-                                    <img src="img/anh1.jpg" alt="Product Image">
+                                    <img src="upload/<?php echo $sp['img']?>" alt="Product Image">
                                 </div>
                             </div>
                             <div class="col-md-7">
                                 <div class="product-content">
-                                    <div class="title"><h2>Lenovo Slim 7 Pro X</h2></div>
+                                    <div class="title"><h2><?php echo $sp['tensp']?></h2></div>
                                     <div class="ratting">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -35,12 +35,8 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="price">22.890.000  <span>29.990.000</span></div>
-                                    <div class="details">
-                                        <p>
-                                            Lenvo Slim 7 Pro X là một chiếc Laptop hứa hẹn là một trong những sự lựa chọn tuyệt vời bởi thiết kế độc đáo, cá tính cùng với hiệu năng và những thông số kĩ thuật ấn tượng. Vậy nên đừng ngần ngại lựa chọn mua Lenvo Slim 7 Pro X tại hệ thống của hàng của LaptopAZ.vn để được trải nghiệm sự tuyệt vời của chiếc Laptop này đem lại.
-                                            </p>
-                                            </div>
+                                    <div class="price"><?php echo $sp['gia']?></div>
+                                   
 
                                     <div class="quantity">
                                         <h4>Số lượng:</h4>
@@ -50,12 +46,20 @@
                                             <button class="btn-plus"><i class="fa fa-plus"></i></button>
                                         </div><br>
                                         <h4>Size</h4>
-                                        <input type="checkbox" name="" id="">14inch
-                                        <input type="checkbox" name="" id="">15inch
+                                        <?php foreach ($listsize as $size ) {
+                                            ?>
+                                               <input type="radio" name="size" id="" value="<?php echo $size['idsize']?>"><?php echo $size['size']?>
+                                               <?php
+                                        }?>
+                                     
                                         <br>
                                         <h4>Màu</h4>
-                                        <input type="checkbox" name="" id="">Xám 
-                                        <input type="checkbox" name="" id="">Đen
+                                        <?php foreach ($listmau as $mau ) {
+                                            ?>
+                                               <input type="radio" name="mau" id="" value="<?php echo $mau['idmau']?>"><?php echo $mau['mau']?>
+                                               <?php
+                                        }?>
+                                     
                                     </div>
                                     <div class="action">
                                         <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
@@ -82,12 +86,8 @@
                                     <div id="description" class="container tab-pane active"><br>
                                         <h4>Thiết kế</h4>
                                         <p>
-                                            Lenovo Slim 7 Pro X đi theo lối thiết kế tinh tế và hiện đại. Vỏ kim loại màu xám đen tạo nên một ngoại hình sang trọng và lịch lãm, đồng thời mang tới sự bền bỉ và khả năng tản nhiệt hiệu quả. Đường cắt vát trên bề mặt máy tạo nên các góc cạnh và tạo hiệu ứng ánh sáng vô cùng độc đáo. Lenovo Slim 7 Pro X sở hữu sự kết hợp tuyệt vời giữa Thiết kế này thể hiện sự kết hợp tuyệt vời giữa thẩm mỹ và hiệu suất làm việc.      <br>                                
-                                           
-                                                Không khó khi người dùng có thể nhận thấy rằng với một thiết kế bề ngoài hoàn mỹ thì đi cùng đó là một hiệu năng ''siêu khủng'' được trang bị trên chiếc Lenovo Slim 7 Pro X. Với việc được trang bị con chip CPU AMD Ryzen 9-6900HS, đi cùng Ram 32GB LPDDR5-6400MHz và 1TB SSD NVMe PCIe, Lenovo Slim 7 Pro X có thể thoải mái cân tất cả các tác vụ nặng, hoạt động đa nhiệm mượt mà. 
-
-Ngoài ra, Lenovo Slim 7 Pro X Ryzen 9 còn được trang bị card đồ họa rời Nvidia GeForce RTX 3050 với 4GB VRAM cung cấp khả năng xử lý đồ họa tốt để xử lý các công việc như đồ họa 3D, chơi game và làm việc với các ứng dụng đồ họa chuyên nghiệp. <br>
-                                        </p>
+                                    <?php echo $sp['mota'] ?>        
+                                    </p>
 </div>
                                     
                                     <div id="reviews" class="container tab-pane fade"><br>

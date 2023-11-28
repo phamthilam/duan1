@@ -30,9 +30,11 @@
         <td><?php echo $sp['mau']?></td>
         <td><a href="index.php?act=xoasp&id=<?php echo $sp['id']?>"><input type="button" value="Xóa"></a></td>
         <td><a href="index.php?act=suasp&id=<?php echo $sp['id']?>"><input type="button" value="Sửa"></a></td>
+       
     </tr>
     <?php
     }?>
   </table>
+  <a href="index.php?act=spbt"><input type="button" value="thêm sản phẩm biến thể"></a>
 </body>
 </html>

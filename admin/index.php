@@ -1,4 +1,5 @@
 <?php
+
 include "header.php";
 include "../model/pdo.php";
 include "../model/danhmuc.php";
@@ -162,36 +163,56 @@ if (isset($_GET['act'])) {
                                include "binhluan/list.php";
                              break;
                             
-            case 'addsp':
-                if (isset($_POST['themsp']) && $_POST['themsp']) {
-                    $masp=$_POST['masp'];
-                    $tensp=$_POST['tensp'];
-                    $img=$_FILES['img']['name'];
-                   $target_dir="../upload/";
-                   $target_file=$target_dir.basename($_FILES["img"]['name']);
-                   if (move_uploaded_file($_FILES["img"]["tmp_name"],$target_file)) {
-                    
-                   }
-                   $gia=$_POST['gia'];
-                   $mota=$_POST['mota'];
-                   $luotxem=$_POST['luotxem'];
-                   $id_dm=$_POST['idloai'];
-                   $idsize=$_POST['idsize'];
-                   $idmau=$_POST['idmau'];
-                   $soluong=$_POST['soluong'];
-                   insert_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm,$idsize,$idmau,$soluong);
-                }
-                $listdanhmuc=loadall_danhmuc();
-                $listsize=loadall_size();
-                $listmau=loadall_mau();
-                include "sanpham/add.php";
-                break;
-                
+                             case 'addsp':
+                                if (isset($_POST['themsp']) && $_POST['themsp']) {
+                                    $masp=$_POST['masp'];
+                                    $tensp=$_POST['tensp'];
+                                    $img=$_FILES['img']['name'];
+                                   $target_dir="../upload/";
+                                   $target_file=$target_dir.basename($_FILES["img"]['name']);
+                                   if (move_uploaded_file($_FILES["img"]["tmp_name"],$target_file)) {
+                                    
+                                   }
+                                   $gia=$_POST['gia'];
+                                   $mota=$_POST['mota'];
+                                   $luotxem=$_POST['luotxem'];
+                                   $id_dm=$_POST['idloai'];
+                                  
+                                   insert_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm);
+                                }
+                                $listdanhmuc=loadall_danhmuc();
+                                $listsize=loadall_size();
+                                $listmau=loadall_mau();
+                                include "sanpham/add.php";
+                                break;
+                                
            
             case 'listsp':
                     $listsanpham=loadall_sanpham();
             include "sanpham/list.php";
             break; 
+            case 'spbt':
+                $listsanpham=loadall_spkobt();
+                $listdanhmuc=loadall_danhmuc();
+            $listsize=loadall_size();
+            $listmau=loadall_mau();
+                include "sanpham/spbt.php";
+                break;
+            case 'addspbt':
+                if (isset($_POST['themspbt']) && $_POST['themspbt']) {
+                    $masp=$_POST['masp'];
+                   $idsize=$_POST['idsize'];
+                   $idmau=$_POST['idmau'];
+                   $soluong=$_POST['soluong'];
+                   insert_spbt($masp,$idsize,$idmau,$soluong);
+                }
+                $listsanpham=loadall_sanpham();
+                include "sanpham/list.php";
+                $listdanhmuc=loadall_danhmuc();
+                $listsize=loadall_size();
+                $listmau=loadall_mau();
+              
+                break;
             case 'xoasp':
                 if (isset($_GET['id'])&& ($_GET['id']>0) ) {
                     $id=$_GET['id'];

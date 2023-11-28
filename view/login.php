@@ -24,52 +24,28 @@
                     <div class="col-md-6">
                         <div class="login-form">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <label>E-mail / Username</label>
-                                    <input class="form-control" type="text" placeholder="First Name">
+                                <form action="index.php?act=dangnhap" method="post">
+                                <div class="col-md-12">
+                                    <label>Tên tài khoản</label>
+                                    <input class="form-control" type="text" name="name" >
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label>Password</label>
-                                    <input class="form-control" type="text" placeholder="Last Name">
+                                    <input class="form-control" type="text" name="pass">
                                 </div>
+                               
+                                </div><a href="index.php?act=quenmk">Quên Mật Khẩu</a>
                                 <div class="col-md-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="newaccount">
-                                        <a href="Quenmk.php">Quên Mật Khẩu</a>
-                                    </div>
+                                    <input type="submit" value="Đăng nhập" name="dangnhap">
                                 </div>
-                                <div class="col-md-12">
-                                    <button class="btn">Submit</button>
-                                </div>
+                            </form>
+                             
+                            <?php if(isset($thongbao)&&($thongbao!="")) echo $thongbao; ?>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-md-6">    
-                        <div class="register-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>First Name</label>
-                                    <input class="form-control" type="text" placeholder="First Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Last Name"</label>
-                                    <input class="form-control" type="text" placeholder="Last Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>E-mail</label>
-                                    <input class="form-control" type="text" placeholder="E-mail">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Mobile No</label>
-                                    <input class="form-control" type="text" placeholder="Mobile No">
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

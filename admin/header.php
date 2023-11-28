@@ -38,8 +38,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="search">
-                            <input type="text" placeholder="Search">
-                            <button><i class="fa fa-search"></i></button>
+                            <input type="text" placeholder="Search" name="kyw">
+                            <input type="submit" value="Tìm kiếm" name="timkiem">
                         </div>
                     </div>
                     <div class="col-md-3">

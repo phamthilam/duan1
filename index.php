@@ -1,4 +1,6 @@
 <?php
+session_start();
+ob_start();
 include "view/header.php";
 include "model/pdo.php";
 include "model/dangky.php";
@@ -12,6 +14,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
     $act=$_GET['act'];
     switch ($act) {
          case 'sanpham':
+               
                 $listdm=loadall_danhmuc();
                 $sphome= loadall_sanpham();
                 $sptop10=load_sanpham_top10();
@@ -23,6 +26,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                 $sp=loadone_sanpham($id);  
                 $listsize=loadall_size();
                 $listmau=loadall_mau();
+                $listdm=loadall_danhmuc();
                 include "view/product-detail.php";
             } else {
                 include "view/trangchu.php";
@@ -41,9 +45,49 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
             }
             include "view/dangky.php";
             break;
-        case 'dangnhap':
+            case 'dangnhap':
+                if (isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
+                    $name=$_POST['name'];
+                    $pass=$_POST['pass'];
+                    $checkuser=checkuser($name,$pass);
+                    if (is_array($checkuser)) {
+                        $_SESSION['user']=$checkuser;
+                        header('Location: index.php');
+                    }else {
+                        $thongbao="tài khoản không tồn tại";
+                    }
+                    
+                }
             include "view/login.php";
-            break;
+                break;           
+                case 'quenmk':
+                    if (isset($_POST['guiemail']) && ($_POST['guiemail'])) {
+                        
+                        $email = $_POST['email'];
+                        
+        
+                        
+                         $sql = "SELECT * FROM taikhoan WHERE email ='$email'";
+                         $checkemail = pdo_query_one($sql); 
+                         if (is_array($checkemail)) {
+                            $thongbao = "Mật khẩu của bạn là: " . $checkemail['pass'];
+                        } else {
+                            $thongbao = "Email này không tồn tại";
+                        }
+                           } 
+                        
+                        
+                    
+                    
+        
+                    include "view/quenmk.php";
+        
+                break;       
+                case 'thoat':
+                        session_unset();
+                        header('Location: index.php');
+                        include "view/trangchu.php";
+                        break;
         case 'chinhsach ':
                 include "view/chinhsach.php";
                 break;

@@ -89,18 +89,18 @@
                                     <?php echo $sp['mota'] ?>        
                                     </p>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $("#reviews").load("view/binhluan/formbinhluan.php", {idsp: <?=$sp['id']?>});
+    });
+</script>
                                     
                                     <div id="reviews" class="container tab-pane fade"><br>
-                                        
+<!--                                         
                                         <div class="reviews-submit">
                                            
                                             <div class="row form">
-                                                <div class="col-sm-6">
-                                                    <input type="text" placeholder="Tên">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="email" placeholder="Email">
-                                                </div>
                                                 <div class="col-sm-12">
                                                     <textarea placeholder="Đánh giá"></textarea>
                                                 </div>
@@ -108,7 +108,7 @@
                                                     <button>Submit</button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -230,18 +230,33 @@
                         <div class="sidebar-widget category">
                             <h2 class="title">Danh mục</h2>
                             <ul>
-                                <li><a href="#">Dell</a></li>
-                                <li><a href="#">Hp</a></li>
+                                <?php 
+                                foreach ($listdm as $dm) {
+                                    ?>
+                                    <li><a href="<?php $dm['id']?>"><?php echo $dm['name_dm']?></a></li>
+                                    <?php
+                                }
+                                ?>
+                                
+                                <!-- <li><a href="#">Hp</a></li>
                                 <li><a href="#">Asus</a></li>
                                 <li><a href="#">Lenovo</a></li>
-                                <li><a href="#">Macbook</a></li>
+                                <li><a href="#">Macbook</a></li> -->
                             </ul>
                         </div>
                         
                         <div class="sidebar-widget brands">
                             <h2 class="title">Sản phẩm top 10</h2>
                             <ul>
-                                <li><a href="#">Laptop Asus UX3402ZA-KM219W </a></li>
+                            <?php 
+                                foreach ($sptop10 as $sp) {
+                                    ?>
+                                    <li><a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><?php echo $sp['tensp']?></a></li>
+                                    <?php
+                                }
+                                ?>
+                                
+                                <!-- <li><a href="#">Laptop Asus UX3402ZA-KM219W </a></li>
                                 <li><a href="#">Laptop Asus Zenbook UX363EA-HP726W </a></li>
                                 <li><a href="#">HP EliteBook Dragonfly G3 6Z979PA</a></li>
                                 <li><a href="#"> Laptop HP  14-ef0030TU 6K773PA</a></li>
@@ -250,7 +265,7 @@
                                 <li><a href="#"> Laptop Dell XPS 13 9320 5CG56</a></li>
                                 <li><a href="#">Laptop Lenovo Thinkpad 21C1006YVA</a></li>
                                 <li><a href="#">Laptop Lenovo Thinkpad 21E8003FVN</a></li>
-                                <li><a href="#">Laptop Lenovo Thinkpad 21E8S02500 </a></li>
+                                <li><a href="#">Laptop Lenovo Thinkpad 21E8S02500 </a></li> -->
                             </ul>
                         </div>
                         

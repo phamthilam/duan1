@@ -1,5 +1,14 @@
 
-        
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            
+       
         <!-- Main Slider Start -->
         <div class="home-slider ">
             <div class="main-slider ">
@@ -50,7 +59,7 @@
         
         
         <!-- Category Start-->
-        <div class="category">
+        <!-- <div class="category">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
@@ -97,7 +106,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Category End-->
         
         
@@ -129,7 +138,7 @@
                                         </div>
                                     </div>
                                     <div class="product-content">
-                                        <div class="title"><a href="product-detail.php"><?php echo $sp['tensp']?></a></div>
+                                        <div class="title"><a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><?php echo $sp['tensp']?></a></div>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -284,17 +293,17 @@
 ?>                    <div class="col-lg-3">
                         <div class="product-item">
                             <div class="product-image">
-                                <a href="product-detail.php">
+                                <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>">
                                     <img src="upload/<?php echo $sp['img']?>" alt="Product Image" height="240px">
                                 </a>
                                 <div class="product-action">
                                     <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
                                     <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="product-detail.php"><i class="fa fa-search"></i></a>
+                                    <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                             <div class="product-content">
-                                <div class="title"><a href="product-detail.php"><?php echo $sp['tensp']?></a></div>
+                                <div class="title"><a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><?php echo $sp['tensp']?></a></div>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -433,6 +442,7 @@
             </div>
         </div>
         <!-- Brand End -->
-
+ </body>
+        </html>
         
   

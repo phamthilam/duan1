@@ -10,18 +10,28 @@ function loadall_size(){
     $listsize=pdo_query($sql);
     return $listsize;
 }
-function insert_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm,$idsize,$idmau,$soluong){
+function insert_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm){
     $sql="insert into sanpham(id,tensp,img,gia,mota,luotxem,id_dm) values('$masp','$tensp','$img','$gia','$mota','$luotxem','$id_dm')";
     pdo_execute($sql);
-    $sql="insert into spbienthe(id_sp,id_size,id_mau,soluong) values('$masp','$idsize','$idmau','$soluong')";
+   
+}
+function insert_spbt($masp,$idsize,$idmau,$soluong){
+     $sql="INSERT INTO spbienthe(id_sp, id_size, id_mau, soluong) VALUES ('$masp','$idsize','$idmau','$soluong')";
     pdo_execute($sql);
+}
+function loadall_spkobt(){
+    $sql="select * from sanpham where is_delete=0";
+    $listsanpham=pdo_query($sql);
+    return $listsanpham;;
+    
 }
 function loadall_sanpham(){
     $sql="select * from sanpham join spbienthe on sanpham.id=spbienthe.id_sp 
     join sizesp on sizesp.idsize=spbienthe.id_size
     join mausp on mausp.idmau=spbienthe.id_mau where is_delete=0";
     $listsanpham=pdo_query($sql);
-    return $listsanpham;
+    return $listsanpham;;
+    
 }
 function load_sanpham_top10(){
     $sql="select * from sanpham join spbienthe on sanpham.id=spbienthe.id_sp 
@@ -56,6 +66,5 @@ function update_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm,$idsize,$id
     pdo_execute($sql);
 }
     }
-    
    
 ?>

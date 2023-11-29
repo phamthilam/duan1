@@ -34,5 +34,12 @@
         $dh=pdo_query_one($sql);
         return $dh;
     }
+    function loadall_thongke() {
+        $sql = "select danhmuc.id as madm, danhmuc.name_dm as tendm, count(sanpham.id) as countsp, min(sanpham.gia) as minprice, max(sanpham.gia) as maxprice, avg(sanpham.gia) as avgprice";
+        $sql.=" from sanpham left join danhmuc on danhmuc.id=sanpham.id_dm";
+        $sql.=" group by danhmuc.id order by danhmuc.id desc";
+        $listtk=pdo_query($sql);
+        return $listtk;
+    }
     
 ?>

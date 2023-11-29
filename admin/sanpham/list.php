@@ -6,7 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+<form action="index.php?act=listsp" method="post">
+                    <input type="text" name="kyw" id="">
+                    <select name="iddm" id="">
+                        <option value="0" selected>Tất cả</option>
+                    <?php
+                    foreach ($listdanhmuc as $danhmuc) {
+                      ?>
+                      <option value="<?php echo $danhmuc['id']?>"><?php echo $danhmuc['name_dm']?></option>
+                      <?php
+                    }
+                    ?>
+                    
+                </select>
+                <input type="submit" value="GO" name="listok">
+                </form>
 <table class="table table-bordered">
     <thead class="thead-dark">
     <tr>

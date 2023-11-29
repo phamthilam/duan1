@@ -188,7 +188,15 @@ if (isset($_GET['act'])) {
                                 
            
             case 'listsp':
-                    $listsanpham=loadall_sanpham();
+                if (isset($_POST['listok'])&&($_POST['listok'])) {
+                    $kyw=$_POST['kyw'];
+                    $iddm=$_POST['iddm'];
+                } else{
+                    $kyw='';
+                    $iddm=0;
+                }
+                $listdanhmuc=loadall_danhmuc();
+                $listsanpham=loadall_sanpham($kyw,$iddm);
             include "sanpham/list.php";
             break; 
             case 'spbt':
@@ -259,10 +267,12 @@ if (isset($_GET['act'])) {
                     break;
                     
         default:
+        $listthongke=loadall_thongke();
             include "home.php";
             break;
     }
 } else {
+    $listthongke=loadall_thongke();
     include "home.php";
 }
 

@@ -19,33 +19,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="product-search">
-                                            <input type="email" value="Search">
-                                            <button><i class="fa fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="product-short">
-                                            <div class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Danh mục</a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <?php
-                                                    foreach ($listdm as $dm) {
-                                                        ?>
-                                                         <a href="#" class="dropdown-item"><?php echo $dm['name_dm'] ?></a>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                   
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <?php foreach ($sphome as $sp) {
                                 ?>
                                 <div class="col-lg-4">
@@ -328,7 +302,7 @@
                                 <?php 
                                 foreach ($listdm as $dm) {
                                     ?>
-                                    <li><a href="#"><?php echo $dm['name_dm']?></a></li>
+                                    <li><a href="index.php?act=sanpham&iddm=<?php echo $dm['id']?>"><?php echo $dm['name_dm']?></a></li>
                                     <?php
                                 }
                                 ?>

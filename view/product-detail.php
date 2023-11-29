@@ -122,11 +122,13 @@
                         </div>
                         
                         <div class="row align-items-center product-slider product-slider-3">
-                            <div class="col-lg-3">
+                            <?php foreach ($listspcungloai as $sp) {
+                                ?>
+                                 <div class="col-lg-3">
                                 <div class="product-item">
                                     <div class="product-image">
                                         <a href="product-detail.php">
-                                            <img src="img/anh1.jpg" alt="Product Image">
+                                            <img src="upload/<?php echo $sp['img'] ?>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
@@ -135,7 +137,7 @@
                                         </div>
                                     </div>
                                     <div class="product-content">
-                                        <div class="title"><a href="product-detail.php">Lenovo Slim 7 Pro X</a></div>
+                                        <div class="title"><a href="product-detail.php"><?php echo $sp['tensp']?></a></div>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -143,11 +145,14 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                         </div>
-                                        <div class="price">22.890.000  <span>29.990.000</span></div>
+                                        <div class="price"><?php echo $sp['gia']?></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                           
+                           <?php
+                            } ?>
+                            <!-- <div class="col-lg-3">
                                 <div class="product-item">
                                     <div class="product-image">
                                         <a href="product-detail.php">
@@ -221,7 +226,7 @@
                                         <div class="price"> 6.490.000  <br> <span>9.990.000</span></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             
                         </div>
                     </div>
@@ -233,7 +238,7 @@
                                 <?php 
                                 foreach ($listdm as $dm) {
                                     ?>
-                                    <li><a href="<?php $dm['id']?>"><?php echo $dm['name_dm']?></a></li>
+                                    <li><a href="index.php?act=sanpham&iddm=<?php echo $dm['id']?>"><?php echo $dm['name_dm']?></a></li>
                                     <?php
                                 }
                                 ?>

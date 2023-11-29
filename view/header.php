@@ -37,11 +37,13 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="search">
-                            <input type="text" placeholder="Tìm kiếm">
-                            <button><i class="fa fa-search"></i></button>
+                        <div class="search"> 
+                            <form action="index.php?act=sanpham" method="post">
+                            <input type="text" placeholder="Tìm kiếm" name="kyw">
+                            <button ><i class="fa fa-search" name="timkiem"></i></button></form>
                         </div>
                     </div>
+                   
                     <div class="col-md-3">
                         <div class="user">
                             <div class="dropdown">

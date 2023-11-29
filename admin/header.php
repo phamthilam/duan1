@@ -38,8 +38,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="search">
-                            <input type="text" placeholder="Search" name="kyw">
+                        <form action="index.php?act=sanpham" method="post">
+                            <input type="text" name="kyw" id="">
                             <input type="submit" value="Tìm kiếm" name="timkiem">
+
+                        </form>
                         </div>
                     </div>
                     <div class="col-md-3">

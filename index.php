@@ -14,16 +14,29 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
     $act=$_GET['act'];
     switch ($act) {
          case 'sanpham':
-               
+            if (isset($_POST['kyw'])&&($_POST['kyw']!="")) {
+                $kyw=$_POST['kyw'];
+            }else {
+                $kyw="";
+            }
+            if (isset($_GET['iddm'])&&($_GET['iddm']>0)) {
+                $iddm=$_GET['iddm'];
+            } else {
+               $iddm=0;
+            }
                 $listdm=loadall_danhmuc();
-                $sphome= loadall_sanpham();
+              $sphome= loadall_sanpham($kyw,$iddm);
                 $sptop10=load_sanpham_top10();
+                
                 include "view/product-list.php";
                 break;
         case 'sanphamct':
             if (isset($_GET['idsp'])&& ($_GET['idsp']>0) ) {
                 $id=$_GET['idsp'];
-                $sp=loadone_sanpham($id);  
+                
+                $sp=loadone_sanpham($id);   
+                $iddm=$sp['id_dm'];
+                 $listspcungloai=load_sanpham_cungloai($id,$iddm);
                 $listsize=loadall_size();
                 $listmau=loadall_mau();
                 $listdm=loadall_danhmuc();

@@ -25,10 +25,19 @@ function loadall_spkobt(){
     return $listsanpham;;
     
 }
-function loadall_sanpham(){
+function loadall_sanpham($kyw="",$iddm=0){
     $sql="select * from sanpham join spbienthe on sanpham.id=spbienthe.id_sp 
     join sizesp on sizesp.idsize=spbienthe.id_size
     join mausp on mausp.idmau=spbienthe.id_mau where is_delete=0";
+    if ($kyw!="") {
+        $sql.=" and tensp like '%".$kyw."%'";
+    }
+    if ($iddm>0) {
+        $sql.=" and id_dm = '".$iddm."'";
+    }
+    $sql.=" order by id desc";
+    $listsanpham=pdo_query($sql);
+    return $listsanpham;
     $listsanpham=pdo_query($sql);
     return $listsanpham;;
     
@@ -66,5 +75,9 @@ function update_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm,$idsize,$id
     pdo_execute($sql);
 }
     }
-   
+    function load_sanpham_cungloai($id,$iddm){
+        $sql="select * from sanpham where id_dm=".$iddm." AND id<>".$id;
+        $listsanpham=pdo_query($sql);
+        return $listsanpham;
+    }
 ?>

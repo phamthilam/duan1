@@ -6,7 +6,7 @@
             <div class="container">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                    <li class="breadcrumb-item active">Tài khoản của tôi</li>
+                    <li class="breadcrumb-item active">Tài khoản của tôi </li>
                 </ul>
             </div>
         </div>
@@ -20,7 +20,7 @@
                     <div class="col-md-3">
                         <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                            
-                            <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab">Orders</a>
+                            <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab">Lịch sử đặt hàng</a>
                             <a class="nav-link" href="index.php">Logout</a>
                         </div>
                     </div>
@@ -29,44 +29,62 @@
                             
                             <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
                                 <div class="table-responsive">
+                                
+                                    
+                                
+                                    <?php 
+                                    
+                                    if(isset($_SESSION['user']['id'])&&($_SESSION['user']['id']>0)){
+                                
+                                        $billinfo=getbillinfo($_SESSION['user']['id']);
+                                        if(count($billinfo)>0){
+                                    ?>
                                     <table class="table table-bordered">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th>Số thứ tự</th>
-                                                <th>Tên sản phẩm</th>
-                                                <th>ngày đặt hàng</th>
-                                                <th>giá</th>
-                                                <th>trạng thái</th>
-                                                
+                                                <th>Mã đơn hàng</th>
+                                                <th>Ngày đặt hàng</th>
+                                                <th>Trạng thái</th>
+                                                <th>Phương thức thanh toán</th>
+                                                <th>tổng tiền</th>
+                                                <th>Chi tiết đơn hàng</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody> 
+                                           
+                                            <?php foreach ($billinfo as $bill) {
+                                                ?>
+                                              
                                             <tr>
-                                                <td>1</td>
-                                                <td>Laptop Asus UX3402ZA-KM219W </td>
-                                                <td>01 Jan 2020</td>
-                                                <td>30.000.000</td>
-                                                <td>chờ xử lý</td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Laptop Asus Zenbook UX363EA-HP726W </td>
-                                                <td>01 Jan 2020</td>
-                                                <td>24.000.000</td>
-                                                <td>đã thanh toán</td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>HP EliteBook Dragonfly G3 6Z979PA</td>
-                                                <td>01 Jan 2020</td>
-                                                <td>22.000.000</td>
-                                                <td>đang giao</td>
+                                                <td><?=$bill['id']?></td>
+                                                <td><?=$bill['ngaydathang']?></td>
+                                                <td><?=$bill['trangthai']?></td>
+                                                <td><?php 
+                                                switch($bill['id_pttt']){
+                                                    case '1':
+                                                        $txtmess="Thanh toán khi nhận hàng";
+                                                    break;
+                                                    case '2':
+                                                        $txtmess="Thanh toán qua VNPay";
+                                                    break;
+                                                    default:
+                                                    $txtmess="chưa chọn";
+                                                    break;
+                                                }
+                                                echo $txtmess;
+                                                ?></td>
+                                                 <td><?=$bill['total']?></td>  
                                                 
-                                            </tr>
+                                                <td><a href="index.php?act=chitietdh&id=<?php echo $bill['id']?>">Chi tiết đơn hàng</a></td> </tr>
+                                                <?php
+                                            }?>
+                                            
                                         </tbody>
                                     </table>
+                                    <?php } } else{
+                                        echo'<h2>Lịch sử mua hàng trống.</h2><a href=""><h5>Tiếp tục đặt hàng</h5></a>';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             

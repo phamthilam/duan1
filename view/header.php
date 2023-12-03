@@ -39,7 +39,7 @@
                     <div class="col-md-6">
                         <div class="search"> 
                             <form action="index.php?act=sanpham" method="post">
-                            <input type="text" placeholder="Tìm kiếm" name="kyw">
+                            <input type="text" placeholder="Tìm kiếm" name="kyw" required>
                             <button ><i class="fa fa-search" name="timkiem"></i></button></form>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                 ?>
                             </div>
                             <div class="cart">
-                                <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
+                                <a href="index.php?act=addcart"><i class="fa fa-cart-plus"></i></a>
                             </div>
                         </div>
                     </div>

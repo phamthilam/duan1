@@ -20,6 +20,8 @@
                 <div class="row">
                     <div class="col-lg-9">
                         <div class="row align-items-center product-detail-top">
+                        
+                                    
                             <div class="col-md-5">
                                 <div class="product-slider-single">
                                     <img src="upload/<?php echo $sp['img']?>" alt="Product Image">
@@ -36,19 +38,21 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                     <div class="price"><?php echo $sp['gia']?></div>
-                                   
+                                     <form action="index.php?act=addcart" method="post">
 
                                     <div class="quantity">
                                         <h4>Số lượng:</h4>
                                         <div class="qty">
-                                            <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                            <input type="text" value="1">
-                                            <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                            <!-- <button class="btn-minus"><i class="fa fa-minus"></i></button> -->
+                                            <input type="number" value="1" name="soluong" min="1">
+                                            <!-- <button class="btn-plus"><i class="fa fa-plus"></i></button> -->
                                         </div><br>
+                                      
                                         <h4>Size</h4>
                                         <?php foreach ($listsize as $size ) {
                                             ?>
-                                               <input type="radio" name="size" id="" value="<?php echo $size['idsize']?>"><?php echo $size['size']?>
+                                            <label for="size<?php echo $size['idsize']?>"><?php echo $size['size']?></label>
+                                               <input type="radio" name="size" id="size<?php echo $size['idsize']?>" value="<?php echo $size['idsize']?>">
                                                <?php
                                         }?>
                                      
@@ -56,15 +60,21 @@
                                         <h4>Màu</h4>
                                         <?php foreach ($listmau as $mau ) {
                                             ?>
-                                               <input type="radio" name="mau" id="" value="<?php echo $mau['idmau']?>"><?php echo $mau['mau']?>
+                                            <label for="color<?php echo $mau['idmau']?>"><?php echo $mau['mau']?></label>
+                                               <input type="radio" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
                                                <?php
                                         }?>
                                      
                                     </div>
                                     <div class="action">
-                                        <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
-                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                        <a href="#"><i class="fa fa-search"></i></a>
+                                    
+                                        <input type="hidden" name="id_user" value="<?php echo $id_user?>">
+                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id_sp']?>">
+                                                <input type="hidden" name="img" value="<?php echo $sp['img']?>">
+                                                <input type="hidden" name="tensp" value="<?php echo $sp['tensp']?>">
+                                                <input type="hidden" name="gia" value="<?php echo $sp['gia']?>">
+                                              <input class="clickmua" type="submit" name="addtocart" value="thêm vào giỏ hàng">
+                                              </form>
                                     </div>
                                 </div>
                             </div>
@@ -131,9 +141,30 @@
                                             <img src="upload/<?php echo $sp['img'] ?>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
-                                            <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
+                                            
                                             <a href="#"><i class="fa fa-heart"></i></a>
                                             <a href="product-detail.php"><i class="fa fa-search"></i></a>
+                                            <form action="index.php?act=addcart" method="post">
+                                        
+                                        <input type="hidden" name="id_user" value="<?php echo $tk['id_user']?>">
+                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id_sp']?>">
+                                                <input type="hidden" name="img" value="<?php echo $sp['img']?>">
+                                                <input type="hidden" name="tensp" value="<?php echo $sp['tensp']?>">
+                                                <input type="hidden" name="gia" value="<?php echo $sp['gia']?>">
+                                                <?php foreach ($listsize as $size ) {
+                                            ?>
+                                            
+                                               <input type="hidden" name="size" id="size<?php echo $size['idsize']?>" value="<?php echo $size['idsize']?>">
+                                               <?php
+                                        }?>
+                                        <?php foreach ($listmau as $mau ) {
+                                            ?>
+                                            
+                                               <input type="hidden" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
+                                               <?php
+                                        }?>
+                                              <input class="clickmua" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                              </form>
                                         </div>
                                     </div>
                                     <div class="product-content">

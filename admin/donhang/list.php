@@ -22,27 +22,41 @@
                                 <?php 
                                 foreach($listdonhang as $bill){
                                     extract($bill);
-                                    $xoabill="index.php?act=xoabill&id=".$id;
-                                    $suabill="index.php?act=suabill&id=".$id;
-                                echo'<tbody class="align-middle">
+                                  
+                                 ?>
+                                <tbody class="align-middle">
                                     <tr>
                                         
-                                        <td>'.$id_user.'</td>
-                                        <td>'.$bill_name.'</td>
-                                        <td>'.$bill_diachi.'</td>
-                                        <td>'.$bill_sdt.'</td>
-                                        <td>'.$bill_email.'</td>
-                                        <td>'.$id_pttt.'</td>
-                                        <td>'.$id_trangthai.'</td>
-                                        <td>'.$ngaydathang.'</td>
-                                        <td>'.$total.'</td>
-                                        <td>'.$magiamgia.'</td>
-                                        <td><a href="'.$xoabill.'"><input type="button" value="Xóa" class="button-in"></a>
-                                        <a href="'.$suabill.'"><input type="button" value="Sửa" class="button-in"></a></td>
+                                        <td><?php echo $id_user?></td>
+                                        <td><?php echo $bill_name?></td>
+                                        <td><?php echo $bill_diachi?></td>
+                                        <td><?php echo $bill_sdt?></td>
+                                        <td><?php echo $bill_email?></td>
+                                        <td>
+                                            <?php
+                                        switch($id_pttt){
+                                            case '1':
+                                                $txtmess="Thanh toán khi nhận hàng";
+                                            break;
+                                            case '2':
+                                                $txtmess="Thanh toán qua VNPay";
+                                            break;
+                                            default:
+                                            $txtmess="chưa chọn";
+                                            break;
+                                        }
+                                        echo $txtmess;
+                                        ?></td>
+                                        <td><?php echo $trangthai?> </td>
+                                        <td><?php echo $ngaydathang?> </td>
+                                        <td><?php echo $total?> </td>
+                                        <td><?php echo $magiamgia?> </td>
+                                        
+                                        <td><a href="index.php?act=suabill&id=<?php echo $id ?> "><input type="button" value="Sửa" class="button-in"></a></td>
                                     </tr>
                                     
-                                </tbody>';
-                                }
+                                </tbody>;
+                               <?php }
                                 
                                 
                                 ?>

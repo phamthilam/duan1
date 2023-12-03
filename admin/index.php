@@ -43,20 +43,14 @@ if (isset($_GET['act'])) {
         case 'updatedh':
             if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                 $id=$_POST['id'];
-                $id_user=$_POST['id_user'];
-                $bill_name=$_POST['bill_name'];
-                $bill_diachi=$_POST['bill_diachi'];
-                $bill_sdt=$_POST['bill_sdt'];
-                $bill_email=$_POST['bill_email'];
-                $id_pttt=$_POST['idpttt'];
+               
                 $id_trangthai=$_POST['idtrangthai'];
-                $ngaydathang=$_POST['ngaydathang'];
-                $total=$_POST['total'];
-                $magiamgia=$_POST['magiamgia'];
+               
                 
-                update_donhang($id,$id_user,$bill_name,$bill_diachi,$bill_sdt,$bill_email,$id_pttt,$id_trangthai,$ngaydathang,$total,$magiamgia);
+                update_donhang($id,$id_trangthai);
                 $thongbao="Cập nhật thành công";
             }
+            $listtrangthai=loadall_trangthaidh();
             $listdonhang=loadall_donhang();
             include "donhang/list.php";
 

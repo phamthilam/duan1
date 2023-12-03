@@ -1779,3 +1779,15 @@ button.btn {
     border-radius: 20px;
     margin-top: 10px;
 }
+/* click mua */
+.clickmua{
+    border: 1px solid #4977bf;
+    background: #4977bf;
+    color: white;
+    width: 170px;
+    height: 40px;
+}
+.clickmua:hover{
+    background: white;
+    color: #4977bf;
+}

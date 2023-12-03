@@ -27,11 +27,11 @@
                                 <form action="index.php?act=dangnhap" method="post">
                                 <div class="col-md-12">
                                     <label>Tên tài khoản</label>
-                                    <input class="form-control" type="text" name="name" >
+                                    <input class="form-control" type="text" name="name" required>
                                 </div>
                                 <div class="col-md-12">
                                     <label>Password</label>
-                                    <input class="form-control" type="text" name="pass">
+                                    <input class="form-control" type="password" name="pass" required>
                                 </div>
                                
                                 </div><a href="index.php?act=quenmk">Quên Mật Khẩu</a>

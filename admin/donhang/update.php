@@ -48,7 +48,7 @@ if(is_array($dh)){
                                         <?php foreach ($listtrangthai as $tt) {
                                            ?>
                                         
-                                        <option value="<?php echo $tt['id'] ?>"><?php echo $tt['trangthai']?></option>
+                                        <option value="<?php echo $tt['idtrangthai'] ?>"><?php echo $tt['trangthai']?></option>
                                         <?php
                                     }?></select>
                                 </div>

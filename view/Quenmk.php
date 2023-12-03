@@ -20,7 +20,7 @@
         <form action="index.php?act=quenmk" method="post">
           <div>
             <p>Email</p>
-            <input type="email" name="email" placeholder="email">
+            <input type="email" name="email" placeholder="email" required>
           </div>
           <span ><?= isset($thongbao) ? $thongbao : '' ?></span><br>
 

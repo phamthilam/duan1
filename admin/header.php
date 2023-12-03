@@ -50,7 +50,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản</a>
                                 <div class="dropdown-menu">
                                     <a href="index.php?act=dangnhap" class="dropdown-item">Đăng nhập</a>
-                                    <a href="index.php?act=listdangky" class="dropdown-item">Đăng ký</a>
+                                    <a href="index.php?act=dangky" class="dropdown-item">Đăng ký</a>
                                 </div>
                             </div>
                             <div class="cart">
@@ -86,8 +86,6 @@
                                     <a href="index.php?act=adddh" class="dropdown-item">Đơn hàng</a>
                                     <a href="#" class="dropdown-item">User</a>
                                     <a href="index.php?act=listlh" class="dropdown-item">liên hệ</a>
-                                    <a href="index.php?act=addpttt" class="dropdown-item">Phương thức thanh toán</a>
-                                    <a href="index.php?act=addtrangthaidh" class="dropdown-item">Trạng thái đặt hàng</a>
                                 </div>
                             </div>
                             

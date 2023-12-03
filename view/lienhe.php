@@ -37,9 +37,9 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="5" placeholder="Nội dung" name="lh_noidung"></textarea>
+                                    <textarea class="form-control" rows="5" placeholder="Nội dung" name="noidung"></textarea>
                                 </div>
-                                <div><input type="submit" name="guiyeucau" value="Gửi yêu cầu"></div>
+                                <div><input type="submit" name="gui" value="Gửi yêu cầu"></div>
                                 <?php if(isset($thongbao)&&($thongbao!="")) echo $thongbao; ?>
                             </form>
                         </div>

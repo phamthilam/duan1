@@ -2,9 +2,6 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <div class="tieude adm">
-                                <h2> Danh sách liên hệ</h2>
-                            </div>
                             <table class="table table-bordered adm">
                                 <thead class="thead-dark ">
                                     <tr>

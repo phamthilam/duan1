@@ -1,30 +1,30 @@
 <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="table-responsive khung">
-                            <div class="tieude">
-                                <h2 class="adm">Thêm mới voucher</h2>
+                        <div class="table-responsive">
+                            <div>
+                                <h2>Thêm mới voucher</h2>
                             </div>
-                           <form action="index.php?act=addvc" method="post" class="khung2" >
+                           <form action="index.php?act=addvc" method="post">
                                 <div class="adm">
                                     Tên mã giảm giá <br>
-                                    <input type="text" name="name_magg" class="k2">
+                                    <input type="text" name="name_magg">
                                 </div>
                                 <div class="adm">
                                     Số tiền giảm<br>
-                                    <input type="text" name="giamgia" class="k2">
+                                    <input type="text" name="giamgia">
                                 </div>
                                 <div class="adm">
                                     Ngày hết hạn<br>
-                                    <input type="date" name="end_date" class="k2">
+                                    <input type="date" name="end_date">
                                 </div>
                                 <div class="adm">
                                     Số lượng<br>
-                                    <input type="number" name="soluong" class="k2">
+                                    <input type="number" name="soluong">
                                 </div>
                                 <div class="adm">
-                                    <input type="submit" name="themmoi" value="Thêm mới" class="nhap">
-                                    <a href="index.php?act=listvc"><input type="button" value="Danh sách" class="adleft nhap"></a>
+                                    <input type="submit" name="themmoi" value="Thêm mới">
+                                    <a href="index.php?act=listvc"><input type="button" value="Danh sách" class="adleft"></a>
                                 </div>
                                 <?php if(isset($thongbao)&&($thongbao!="")) echo $thongbao; ?>
                            </form>

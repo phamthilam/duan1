@@ -1779,41 +1779,15 @@ button.btn {
     border-radius: 20px;
     margin-top: 10px;
 }
-.adm{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.tieude{
-    text-align: center;
-    
-}
-.tieude>h2{
+/* click mua */
+.clickmua{
+    border: 1px solid #4977bf;
+    background: #4977bf;
     color: white;
+    width: 170px;
+    height: 40px;
 }
-.adleft{
-    margin-left: 10px;
-}
-.khung{
-    text-align: center;
-    border: 2px rgb(15, 76, 208) solid ;
-    width: 600px;
-    margin-top: 20px;
-    margin-left: 250px;
-    margin-bottom: 20px;
-    background-color: #3F69AA;
-    color: white;
- 
-}
-.khung2>div>.k2{
-    width: 300px;
-}
-.nhap{
-    background: orange;
-    color: white;
-    border: 2px orange solid ;
-}
-.nhap:hover{
-    background: orangered;
-    color: white;
-    border: 2px orangered solid ;
+.clickmua:hover{
+    background: white;
+    color: #4977bf;
 }

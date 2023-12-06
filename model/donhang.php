@@ -1,15 +1,16 @@
 <?php 
+    
 
-function getbillinfo($id_user){
-    $sql="SELECT * FROM bill join trangthaidh on bill.id_trangthai=trangthaidh.idtrangthai join cart on bill.id=cart.id_bill WHERE  bill.id_user=".$id_user;
-    $listdh=pdo_query($sql);
-    return $listdh;
-}
+    function getbillinfo($id_user){
+        $sql="SELECT * FROM bill join trangthaidh on bill.id_trangthai=trangthaidh.idtrangthai join cart on bill.id=cart.id_bill WHERE  bill.id_user=".$id_user;
+        $listdh=pdo_query($sql);
+        return $listdh;
+    }
 
     function insert_bill($id_user,$bill_name,$bill_diachi,$bill_sdt,$bill_email,$id_pttt,$ngaydathang,$total){
         // $conn = pdo_get_connection();
         $sql="INSERT INTO bill (id_user,bill_name,bill_diachi,bill_sdt,bill_email,id_pttt,ngaydathang,total) 
-        VALUES('".$id_user."','".$bill_name."','".$bill_diachi."','".$bill_sdt."','".$bill_email."','".$id_pttt."','".$ngaydathang."','".$total."')";
+        VALUES('".$id_user."','".$bill_name."','".$bill_diachi."','".$bill_sdt."','".$bill_email."','".$id_pttt."','".$ngaydathang."','".$total."' )";
          return  pdo_execute_return_lastInsertId($sql);
         // $conn->exec($sql);
         // pdo_execute($sql);
@@ -17,6 +18,7 @@ function getbillinfo($id_user){
         // return $last_id;
          
     }
+   
     function addtocart($id_user,$id_sp,$img,$tensp,$gia,$soluong,$id_bill, $id_size, $id_mau){
         
         $sql="INSERT INTO cart (id_user,id_sp,img,tensp,gia,soluong,id_bill) 
@@ -65,6 +67,5 @@ function getbillinfo($id_user){
         $sql.=" group by danhmuc.id order by danhmuc.id desc";
         $listtk=pdo_query($sql);
         return $listtk;
-    }
-    
+    } 
 ?>

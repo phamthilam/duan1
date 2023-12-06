@@ -13,7 +13,7 @@
 
 
             <div class="container">
-                <img src="view/img/banner-gioithieu.png" alt="">
+                <img src="img/banner-gioithieu.png" alt="">
                 <div>
                     <h6>LQD STORE - Chuyên cung cấp laptop  chính hãng chất lượng trên từng máy, Nguyên Zin 100% (Bao thợ thầy mở xem hoặc đem ra hãng check thoải mái nhé). Hiện tại LDQ STORE đang phân phối 2 dòng Chính: laptop  chính hãng và laptop xách tay về Việt Nam .</h6>
                     <p>LQD STORE cam kết <br>

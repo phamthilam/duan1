@@ -2,11 +2,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
+                            <div class="tieudelist adm">
+                                <h2> Danh sách liên hệ</h2>
+                            </div>
                             <table class="table table-bordered adm">
                                 <thead class="thead-dark ">
                                     <tr>
                                         <th>Id</th>
-                                        <th>Chủ đề</th> 
+                                        
                                         <th>Tên người dùng</th>
                                         <th>Email</th>
                                         <th>Số điện thoại</th>
@@ -21,12 +24,12 @@
                                 echo'<tbody class="align-middle">
                                     <tr>
                                         <td>'.$id.'</td>
-                                        <td>'.$lh_chude.'</td>
+                                       
                                         <td>'.$lh_name.'</td>
                                         <td>'.$lh_email.'</td>
                                         <td>'.$lh_sdt.'</td>
                                         <td>'.$lh_noidung.'</td>
-                                        <td><a href="'.$xoalh.'"><input type="button" value="Xóa" class="button-in"></a></td>
+                                        <td><a href="'.$xoalh.'"><input type="button" value="Xóa" class="button-in suaxoa"></a></td>
                                     </tr>
                                     
                                 </tbody>';

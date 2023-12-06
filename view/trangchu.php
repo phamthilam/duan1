@@ -142,6 +142,7 @@
                                                 <input type="hidden" name="img" value="<?php echo $sp['img']?>">
                                                 <input type="hidden" name="tensp" value="<?php echo $sp['tensp']?>">
                                                 <input type="hidden" name="gia" value="<?php echo $sp['gia']?>">
+                                                
                                                 <?php foreach ($listsize as $size ) {
                                             ?>
                                             
@@ -154,7 +155,9 @@
                                                <input type="hidden" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
                                                <?php
                                         }?>
+                                        
                                               <input class="clickmua" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                              
                                               </form>
                                         </div>
                                     </div>

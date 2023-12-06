@@ -3,6 +3,9 @@
                     <div class="col-md-12">
                         <div class="table-responsive">
                             <table class="table table-bordered adm">
+                            <div class="tieudelist">
+        <h2 class="adm">Lịch sử đơn hàng</h2>
+    </div>
                                 <thead class="thead-dark ">
                                     <tr>
                                         <!-- <th>Id</th> -->
@@ -37,8 +40,8 @@
                                         <td>'.$ngaydathang.'</td>
                                         <td>'.$total.'</td>
                                         <td>'.$magiamgia.'</td>
-                                        <td><a href="'.$xoabill.'"><input type="button" value="Xóa" class="button-in"></a>
-                                        <a href="'.$suabill.'"><input type="button" value="Sửa" class="button-in"></a></td>
+                                        <td><a href="'.$xoabill.'"><input type="button" value="Xóa" class="button-in suaxoa"></a>
+                                        <a href="'.$suabill.'"><input type="button" value="Sửa" class="button-in suaxoa" ></a></td>
                                     </tr>
                                     
                                 </tbody>';

@@ -132,6 +132,10 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
             
             break;
             case 'addcart':
+                
+                
+                
+                
                 //lấy dữ liệu từ form
                 // if(isset($_POST['addtocart'])&&($_POST['addtocart'])){
                     
@@ -227,6 +231,22 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                     }
              break;
              case 'checkout':
+                // /////////////////////////////////////magg/////////////////////////////////
+                $tt=0;
+                if (isset($_POST['apdungma']) && ($_POST['apdungma'])) {
+                        
+                    $name_magg = $_POST['name_magg'];
+                    $checkmagg;
+                     $sql = "SELECT * FROM magiamgia WHERE name_magg ='$name_magg'";
+                     $checkmagg = pdo_query_one($sql); 
+                     if (is_array($checkmagg)) {
+                       
+                        $thongbao = "Nhập mã giảm giá thành công";
+                    } else {
+                        $thongbao = "Mã giảm giá này không tồn tại";
+                    }
+                       } 
+                       ////////////////////////////////////////////////////////////////////////////
                 if(isset($_POST['dathang'])&&($_POST['dathang'])){
                     $id_user=$_SESSION['user']['id'];
                     $bill_name=$_POST['bill_name'];
@@ -237,6 +257,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                    
                     $ngaydathang=date("Y-m-d ");
                     $total=$_POST['total'];
+                    
                     
                     $id_bill=insert_bill($id_user,$bill_name,$bill_diachi,$bill_sdt,$bill_email,$id_pttt,$ngaydathang,$total);
                     $_SESSION['id_bill']=$id_bill;

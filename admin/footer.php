@@ -41,7 +41,7 @@
                         <div class="httt">
                         <div class="payment-method hinhthuc">
                             <p>Hình thức thanh toán:</p>
-                            <img src="../view/img/payment-method.png" alt="Payment Method" />
+                            <img src="../img/payment-method.png" alt="Payment Method" />
                         </div>
                         </div>
                     </div>
@@ -49,9 +49,9 @@
                         <div class="payment-security ">
                            <div class="cn">
                            <p>Chứng nhận:</p>
-                            <img src="../view/img/godaddy.svg" alt="Payment Security" />
-                            <img src="../view/img/norton.svg" alt="Payment Security" />
-                            <img src="../view/img/ssl.svg" alt="Payment Security" />
+                            <img src="../img/godaddy.svg" alt="Payment Security" />
+                            <img src="../img/norton.svg" alt="Payment Security" />
+                            <img src="../img/ssl.svg" alt="Payment Security" />
                            </div>
                         </div>
                     </div>

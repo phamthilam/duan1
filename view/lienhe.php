@@ -19,29 +19,27 @@
                 <div class="row align-items-center">
                     <div class="col-md-7">
                         <div class="form">
-                            <form action="index.php?act=lienhe" method="post">
+                        <form action="index.php?act=lienhe" method="post">
                             
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Chủ đề" name="lh_chude"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Tên" name="lh_name"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="email" class="form-control" placeholder="Email" name="lh_email"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Số điện thoại" name="lh_sdt"/>
-                                    </div>
+                            <div class="form-row">
+                               
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Tên" name="lh_name"/>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="5" placeholder="Nội dung" name="noidung"></textarea>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email" name="lh_email"/>
                                 </div>
-                                <div><input type="submit" name="gui" value="Gửi yêu cầu"></div>
-                                <?php if(isset($thongbao)&&($thongbao!="")) echo $thongbao; ?>
-                            </form>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Số điện thoại" name="lh_sdt"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Nội dung" name="lh_noidung"></textarea>
+                            </div>
+                            <div><input type="submit" name="guiyeucau" value="Gửi yêu cầu" class="nhaplh"></div>
+                            <?php if(isset($thongbao)&&($thongbao!="")) echo $thongbao; ?>
+                        </form>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -69,4 +67,4 @@
         <!-- Contact End -->
         
         
-        
+       

@@ -6,7 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+<form action="index.php?act=listsp" method="post">
+                    <input type="text" name="kyw" id="">
+                    <select name="iddm" id="">
+                        <option value="0" selected>Tất cả</option>
+                    <?php
+                    foreach ($listdanhmuc as $danhmuc) {
+                      ?>
+                      <option value="<?php echo $danhmuc['id']?>"><?php echo $danhmuc['name_dm']?></option>
+                      <?php
+                    }
+                    ?>
+                    
+                </select>
+                <input type="submit" value="lọc" name="listok">
+                </form>
 <table class="table table-bordered">
     <thead class="thead-dark">
     <tr>
@@ -30,9 +44,11 @@
         <td><?php echo $sp['mau']?></td>
         <td><a href="index.php?act=xoasp&id=<?php echo $sp['id']?>"><input type="button" value="Xóa"></a></td>
         <td><a href="index.php?act=suasp&id=<?php echo $sp['id']?>"><input type="button" value="Sửa"></a></td>
+       
     </tr>
     <?php
     }?>
   </table>
+  <a href="index.php?act=spbt"><input type="button" value="thêm sản phẩm biến thể"></a>
 </body>
 </html>

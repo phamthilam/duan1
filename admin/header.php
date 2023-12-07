@@ -36,27 +36,9 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="search">
-                            <input type="text" placeholder="Search">
-                            <button><i class="fa fa-search"></i></button>
-                        </div>
+                    
                     </div>
-                    <div class="col-md-3">
-                        <div class="user">
-                            <div class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản</a>
-                                <div class="dropdown-menu">
-                                    <a href="index.php?act=dangnhap" class="dropdown-item">Đăng nhập</a>
-                                    <a href="index.php?act=dangky" class="dropdown-item">Đăng ký</a>
-                                </div>
-                            </div>
-                            <div class="cart">
-                                <a href="index.php?act=cart" class="dropdown-item"><i class="fa fa-cart-plus"></i></a>
-                                <span>(0)</span>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>

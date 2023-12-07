@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,22 +37,45 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="search">
-                            <input type="text" placeholder="Tìm kiếm">
-                            <button><i class="fa fa-search"></i></button>
+                        <div class="search"> 
+                            <form action="index.php?act=sanpham" method="post">
+                            <input type="text" placeholder="Tìm kiếm" name="kyw" required>
+                            <button ><i class="fa fa-search" name="timkiem"></i></button></form>
                         </div>
                     </div>
+                   
                     <div class="col-md-3">
                         <div class="user">
                             <div class="dropdown">
+                                <?php
+                                if (isset($_SESSION['user'])) {
+                                    extract($_SESSION['user']);
+                                ?>
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $name?></a>
+                            <div class="dropdown-menu">
+                                    <a href="index.php?act=thoat" class="dropdown-item">Đăng xuất</a>
+                                    <?php
+                                if ($id_role==1) {
+                                ?>
+                                <a href="admin/index.php" class="dropdown-item">Quản lý</a>
+                                <?php } ?>
+                                                
+                            </div>
+                                <?php
+                               } else {
+                                  ?>  
+                                
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản</a>
                                 <div class="dropdown-menu">
                                     <a href="index.php?act=dangnhap" class="dropdown-item">Đăng nhập</a>
                                     <a href="index.php?act=dangky" class="dropdown-item">Đăng ký</a>
                                 </div>
+                            <?php
+                            }
+                                ?>
                             </div>
                             <div class="cart">
-                                <a href="cart.php"><i class="fa fa-cart-plus"></i></a>
+                                <a href="index.php?act=addcart"><i class="fa fa-cart-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +98,7 @@
                         <div class="navbar-nav m-auto">
                             <a href="index.php" class="nav-item nav-link active">Trang chủ </a>
                             <a href="index.php?act=sanpham" class="nav-item nav-link">Sản phẩm</a>
-                            <a href="index.php?act=gioithieu" class="nav-item nav-link">Giới thiệu</a>
+                            <a href="index.php?act=gioithieu" class="nav-item nav-link">Voucher</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang khác</a>
                                 <div class="dropdown-menu">

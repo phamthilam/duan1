@@ -41,6 +41,30 @@ Chính sách bán hàng:<br>
 + Hỗ trợ dịch vụ bảo trì tận nhà <br>
 + Giao dịch Mua Bán có hóa đơn chứng từ Rõ Ràng<br>
 + Hỗ trợ thanh toán Quẹt thẻ<br></p>
+<h4>MỘT SỐ MÃ GIẢM GIÁ HẤP DẪN</h4>
+<div class="table-responsive">
+                            <table class="table table-bordered adm">
+                                <thead class="thead-dark ">
+                                    <tr>
+                                        <!-- <th>Id</th> -->
+                                        <th>mã giảm giá</th>
+                                        <th>giảm</th>
+                                      
+                                    </tr>
+                                </thead>
+                             
+                               
+                                <tbody class="align-middle">
+                                  <tr>
+                                    <td><?php echo $mgg['name_magg']?></td>
+                                    <td><?php echo $mgg['giamgia']?></td>
+                                  </tr>
+                                    
+                                </tbody>;
+                              
+                            </table>
+                            
+                        </div>
                 </div>
             </div>
 

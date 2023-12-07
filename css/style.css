@@ -1779,3 +1779,129 @@ button.btn {
     border-radius: 20px;
     margin-top: 10px;
 }
+/* click mua */
+.clickmua{
+    border: 1px solid #4977bf;
+    background: #4977bf;
+    color: white;
+    width: 170px;
+    height: 40px;
+}
+.clickmua:hover{
+    background: white;
+    color: #4977bf;
+}
+.suaxoa{
+    border: 1px solid orange;
+    background: #3F69AA;
+    color: white;
+
+}
+.suaxoa:hover{
+    background: orange;
+    color: #4977bf;
+}
+.clickad{
+    border: 1px solid #4977bf;
+    background: #3F69AA;
+    color: white;   
+    margin-bottom: 20px;
+    
+}
+.clickad:hover{
+    background: orangered;
+    color: #4977bf;
+}
+.adm{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tieude{
+    text-align: center;
+    
+}
+.tieude>h2{
+    color: white;
+}
+.tieudelist{
+    text-align: center;
+    
+}
+.tieudelist>h2{
+    color:#4977bf;
+}
+
+.adleft{
+    margin-left: 10px;
+}
+.khung{
+    text-align: center;
+    border: 2px rgb(15, 76, 208) solid ;
+    width: 600px;
+    margin-top: 20px;
+    margin-left: 250px;
+    margin-bottom: 20px;
+    background-color: #3F69AA;
+    color: white;
+ 
+}
+.khung2>div>.k2{
+    width: 300px;
+}
+.nhap{
+    background: #4977bf;
+    color: white;
+    border: 2px orange solid ;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 40px;
+}
+.nhap:hover{
+    background: orange;
+    color: #4977bf;
+    border: 2px #4977bf solid ;
+}
+.nhaplh{
+    background: #ffffff;
+    color: white;
+    border: 2px orange solid ;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 40px;
+}
+.nhaplh:hover{
+    background: orange;
+    color: #4977bf;
+    border: 2px #4977bf solid ;
+}
+.addleft{
+    margin-left: 600px;
+}
+.addleftsp{
+    margin-left: 660px;
+}
+.tkleft{
+    margin-left: 430px;
+}
+.khungdk{ 
+    text-align: center;
+    border: 2px rgb(255, 255, 255) solid ;
+    width: 600px;
+    margin-top: 20px;
+    margin-left: 650px;
+    margin-bottom: 20px;
+    background-color: white;
+    color: #4977bf;
+ 
+}
+.dangky{
+    width: 400px;
+}
+.dathang{
+margin-top: 20px;
+
+}
+.magg{
+    width: 435px;
+    height: 40px;
+}

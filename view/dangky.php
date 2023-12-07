@@ -23,19 +23,19 @@
                                 <form action="index.php?act=dangky" method="post">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Tên đăng nhập" name="name"/>
+                                        <input type="text" class="form-control" placeholder="Tên đăng nhập" name="name" required/>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="password" class="form-control" placeholder="password" name="pass"/>
+                                        <input type="password" class="form-control" placeholder="password" name="pass" required/>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="email" class="form-control" placeholder="Email" name="email"/>
+                                        <input type="email" class="form-control" placeholder="Email" name="email" required/>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Số điện thoại" name="sdt"/>
+                                        <input type="text" class="form-control" placeholder="Số điện thoại" name="sdt" required/>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" placeholder="Địa chỉ" name="diachi"/>
+                                        <input type="text" class="form-control" placeholder="Địa chỉ" name="diachi" required/>
                                     </div>
                                 </div>
                                 

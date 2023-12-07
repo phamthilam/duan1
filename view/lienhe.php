@@ -24,21 +24,31 @@
                             <div class="form-row">
                                
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Tên" name="lh_name"/>
+                                    <input type="text" class="form-control" placeholder="Tên" name="lh_name" required/>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" placeholder="Email" name="lh_email"/>
+                                    <input type="email" class="form-control" placeholder="Email" name="lh_email" required/>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" placeholder="Số điện thoại" name="lh_sdt"/>
+                                    <input type="text" class="form-control" placeholder="Số điện thoại" name="lh_sdt" required/>
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Nội dung" name="lh_noidung"></textarea>
+                                <textarea class="form-control" rows="5" placeholder="Nội dung" name="lh_noidung" required></textarea>
                             </div>
                             <div><input type="submit" name="guiyeucau" value="Gửi yêu cầu"></div>
-                            <?php if(isset($thongbao)&&($thongbao!="")) echo $thongbao; ?>
+                            <?php 
+                            if (isset($_SESSION['error'])) {
+                                echo '<div class="alert alert-danger">';
+                                foreach ($_SESSION['error'] as $key => $value) {
+                                    echo '<li>' . $value . '</li>';
+                                }
+                                echo '</div>';
+                                
+                            } 
+                            
+                            ?>
                         </form>
                         </div>
                     </div>

@@ -23,5 +23,10 @@ function loadall_dangky(){
     $sql="select * from taikhoan where is_delete=1";
         $listdangky=pdo_query($sql);
         return $listdangky;
+        
+}
+function update_taikhoan($id,$name,$pass,$email,$diachi,$sdt){
+    $sql=" update taikhoan set name='".$name."', pass='".$pass."',email='".$email."',diachi='".$diachi."',sdt='".$sdt."' where id=".$id;
+    pdo_execute($sql);
 }
 ?>

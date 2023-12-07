@@ -53,15 +53,35 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
           
             break;
         case 'dangky':
+            unset($_SESSION['error']);
             if(isset($_POST['dangky'])&&($_POST['dangky'])){
                 $name=$_POST['name'];
                 $pass=$_POST['pass'];
                 $email=$_POST['email'];
                 $diachi=$_POST['diachi'];
-                $sdt=$_POST['sdt'];              
+                $sdt=$_POST['sdt'];   
+                if (empty($email)) {
+                    $_SESSION['error']['email'] = 'Bạn chưa nhập email';
+                } else {
+                    $regex_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/";
+                    if (!preg_match($regex_email, $email)) {
+                        $_SESSION['error']['email'] = 'Email không hợp lệ';
+                    }
+                }
+                if (empty($sdt)) {
+                    $_SESSION['error']['sdt'] = 'Bạn chưa nhập sdt';
+                } else {
+                    $regexPhone ='/^0[0-9]{9}$/';
+                    if (!preg_match($regexPhone, $sdt)) {
+                        $_SESSION['error']['sdt'] = 'số điện thoại không hợp lệ';
+                    }
+                }
+                if (empty($_SESSION['error'])) {           
                 insert_dangky($name,$pass,$email,$diachi,$sdt);
-                $thongbao="Đăng ký thành công. vui lòng đăng nhập để mua hàng";
+                $_SESSION['sucess']="Đăng ký thành công. vui lòng đăng nhập để mua hàng";
+                echo "<script>window.location.href = '?act=dangnhap';</script>";
             }
+        }
             include "view/dangky.php";
             break;
             case 'dangnhap':
@@ -78,7 +98,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                     
                 }
             include "view/login.php";
-                break;           
+                break;                  
                 case 'quenmk':
                     if (isset($_POST['guiemail']) && ($_POST['guiemail'])) {
                         
@@ -120,15 +140,34 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
             include "view/my-account.php";
             break;
         case 'lienhe':
+            unset($_SESSION['error']);
                 if(isset($_POST['guiyeucau'])&&($_POST['guiyeucau'])){
                     
                     $lh_name=$_POST['lh_name'];
                     $lh_email=$_POST['lh_email'];
                     $lh_sdt=$_POST['lh_sdt'];
                     $lh_noidung=$_POST['lh_noidung'];
+                    if (empty($lh_email)) {
+                        $_SESSION['error']['email'] = 'Bạn chưa nhập email';
+                    } else {
+                        $regex_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/";
+                        if (!preg_match($regex_email, $lh_email)) {
+                            $_SESSION['error']['email'] = 'Email không hợp lệ';
+                        }
+                    }
+                    if (empty($lh_sdt)) {
+                        $_SESSION['error']['sdt'] = 'Bạn chưa nhập sdt';
+                    } else {
+                        $regexPhone ='/^0[0-9]{9}$/';
+                        if (!preg_match($regexPhone, $lh_sdt)) {
+                            $_SESSION['error']['sdt'] = 'số điện thoại không hợp lệ';
+                        }
+                    }
+                    if (empty($_SESSION['error'])) {     
                     $sql="insert into lienhe (lh_name,lh_email,lh_sdt,lh_noidung) values ('$lh_name','$lh_email','$lh_sdt','$lh_noidung')";
                     pdo_execute($sql);
                     $thongbao="Gửi thành công";
+                    }
                 }
                 include "view/lienhe.php";
             
@@ -251,7 +290,9 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                         header('location: index.php?act=addcart');
                     }
              break;
+             
              case 'checkout':
+                unset($_SESSION['error']);
                 $tt=0;
                 if (isset($_POST['apdungma']) && ($_POST['apdungma'])) {
                     $name_magg = $_POST['name_magg'];
@@ -283,6 +324,23 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                     // $id_size=$_POST['id_size'];
                     // $id_mau=$_POST['id_mau'];
                     // $item[9]=getspbt($id_sp,$id_size,$id_mau)['id_bt'];
+                    if (empty($bill_email)) {
+                        $_SESSION['error']['email'] = 'Bạn chưa nhập email';
+                    } else {
+                        $regex_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/";
+                        if (!preg_match($regex_email, $bill_email)) {
+                            $_SESSION['error']['email'] = 'Email không hợp lệ';
+                        }
+                    }
+                    if (empty($bill_sdt)) {
+                        $_SESSION['error']['sdt'] = 'Bạn chưa nhập sdt';
+                    } else {
+                        $regexPhone ='/^0[0-9]{9}$/';
+                        if (!preg_match($regexPhone, $bill_sdt)) {
+                            $_SESSION['error']['sdt'] = 'số điện thoại không hợp lệ';
+                        }
+                    }
+                    if (empty($_SESSION['error'])) {   
                     $id_bill=insert_bill($id_user,$bill_name,$bill_diachi,$bill_sdt,$bill_email,$id_pttt,$ngaydathang,$total);
                     $_SESSION['id_bill']=$id_bill;
                     if(isset($_SESSION['giohang'])&&(count($_SESSION['giohang'])>=0)){
@@ -292,11 +350,44 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                         unset($_SESSION['giohang']);
                         header('location: index.php?act=taikhoan');
                     }
-                    
+                }
                 }
                 include "view/checkout.php";
             
             break;
+            case 'edit_taikhoan':
+                unset($_SESSION['error']);
+                if (isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $name=$_POST['name'];
+                    $pass=$_POST['pass'];
+                    $email=$_POST['email'];
+                    $diachi=$_POST['diachi'];
+                    $sdt=$_POST['sdt'];
+                    $id=$_POST['id'];
+                    if (empty($email)) {
+                        $_SESSION['error']['email'] = 'Bạn chưa nhập email';
+                    } else {
+                        $regex_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/";
+                        if (!preg_match($regex_email, $email)) {
+                            $_SESSION['error']['email'] = 'Email không hợp lệ';
+                        }
+                    }
+                    if (empty($sdt)) {
+                        $_SESSION['error']['sdt'] = 'Bạn chưa nhập sdt';
+                    } else {
+                        $regexPhone ='/^0[0-9]{9}$/';
+                        if (!preg_match($regexPhone, $sdt)) {
+                            $_SESSION['error']['sdt'] = 'số điện thoại không hợp lệ';
+                        }
+                    }
+                    if (empty($_SESSION['error'])) {  
+                    update_taikhoan($id,$name,$pass,$email,$diachi,$sdt);
+                    $_SESSION['user']=checkuser($name,$pass);
+                    header('Location: index.php?act=trangchu');
+                    }
+                }
+                include "view/edit_taikhoan.php";
+                break;
         default:
             include "view/trangchu.php";
             break;

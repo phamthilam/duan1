@@ -8,17 +8,17 @@
 <body>
     <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
         <label for="" class="form-label">Mã sản phẩm</label>
-        <input type="text" name="masp" id="" class="form-control">
+        <input type="text" name="masp" id="" class="form-control" required>
         <label for="" class="form-label">Tên sản phẩm</label>
-        <input type="text" name="tensp" id="" class="form-control">
+        <input type="text" name="tensp" id="" class="form-control" required>
         <label for="" class="form-label">Ảnh sản phẩm</label>
-        <input type="file" name="img" class="form-control" id="">
+        <input type="file" name="img" class="form-control" id="" required>
         <label for="" class="form-label">Giá sản phẩm</label>
-        <input type="text" name="gia" id="" class="form-control">
+        <input type="text" name="gia" id="" class="form-control" required>
         <label for="" class="form-label">Mô tả sản phẩm</label>
-        <input type="text" name="mota" id="" class="form-control">
+        <input type="text" name="mota" id="" class="form-control" required>
         <label for="" class="form-label">Lượt xem sản phẩm</label>
-        <input type="text" name="luotxem" id="" class="form-control">
+        <input type="number" name="luotxem" id="" class="form-control" required>
         <label for="" class="form-label">Loại sản phẩm</label>
         <select name="idloai" id="" class="form-select">
             <?php

@@ -52,7 +52,7 @@
                                         <?php foreach ($listsize as $size ) {
                                             ?>
                                             <label for="size<?php echo $size['idsize']?>"><?php echo $size['size']?></label>
-                                               <input type="radio" name="size" id="size<?php echo $size['idsize']?>" value="<?php echo $size['idsize']?>">
+                                               <input type="radio" name="size" id="size<?php echo $size['idsize']?>" value="<?php echo $size['idsize']?>" checked>
                                                <?php
                                         }?>
                                      
@@ -61,7 +61,7 @@
                                         <?php foreach ($listmau as $mau ) {
                                             ?>
                                             <label for="color<?php echo $mau['idmau']?>"><?php echo $mau['mau']?></label>
-                                               <input type="radio" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
+                                               <input type="radio" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>" checked>
                                                <?php
                                         }?>
                                      

@@ -30,6 +30,6 @@
            
         </select> <br>
         <label for="" class="form-label">Số lượng sản phẩm</label>
-        <input type="text" name="soluong" id="" class="form-control">
+        <input type="text" name="soluong" id="" class="form-control" required>
         <input type="submit" value="Thêm sản phẩm" name="themspbt">
         </form>

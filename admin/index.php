@@ -59,9 +59,9 @@ if (isset($_GET['act'])) {
             if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
                 $name_magg=$_POST['name_magg'];
                 $giamgia=$_POST['giamgia'];
-                $end_date=$_POST['end_date'];
+                
                 $soluong=$_POST['soluong'];
-                insert_voucher($name_magg,$giamgia,$end_date,$soluong);
+                insert_voucher($name_magg,$giamgia,$soluong);
                 $thongbao="Thêm mới thành công";
             }
             include "voucher/add.php";  
@@ -194,7 +194,7 @@ if (isset($_GET['act'])) {
             include "sanpham/list.php";
             break; 
             case 'spbt':
-                $listsanpham=loadall_spkobt();
+                $listsanpham=loadall_spkbt();
                 $listdanhmuc=loadall_danhmuc();
             $listsize=loadall_size();
             $listmau=loadall_mau();

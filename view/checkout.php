@@ -42,11 +42,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Số điện thoai</label>
-                                    <input class="form-control" name="bill_sdt" type="text" placeholder="số điện thoại" required>
+                                    <input class="form-control" name="bill_sdt" type="text" placeholder="số điện thoại" id="sdt" required>
+                                    <span class="thongbao"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Email</label>
-                                    <input class="form-control" name="bill_email" type="email" placeholder="email" required>
+                                    <input class="form-control" name="bill_email" type="email" placeholder="email" required id="email">
+                                    <span class="thongbao"></span>
                                 </div>
                                 
                                 
@@ -54,7 +56,17 @@
                             
                         </div>
                         
+                         <?php 
+                        if (isset($_SESSION['error'])) {
+                            echo '<div class="alert alert-danger">';
+                            foreach ($_SESSION['error'] as $key => $value) {
+                                echo '<li>' . $value . '</li>';
+                            }
+                            echo '</div>';
+                            
+                        } 
                         
+                    ?> 
                     </div>
                     
                     <div class="col-md-5">
@@ -101,7 +113,7 @@
                                     } ?>
                                    <p>Phí vận chuyển<span>100000</span></p>
                                    
-                                   <p class="">Giảm giá<span>0đ</span></p>
+                                  
                                   <h4>Thành tiền<span><?php 
                                    echo $tt;
                                   
@@ -119,14 +131,10 @@
                             <div class="payment-methods">
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-1" name="id_pttt"  value="1" require>
+                                        <input type="radio" class="custom-control-input" id="payment-1" name="id_pttt"  value="1" require checked>
                                         <label class="custom-control-label" for="payment-1" >Thanh toán khi nhận hàng</label>
                                     </div>
-                                    <div class="payment-content" id="payment-1-show">
-                                        <p>
-                                           Khách hàng thanh toán khi nhận dược sản phẩm
-                                        </p>
-                                    </div>
+                                  
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
@@ -141,14 +149,10 @@
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="3" name="id_pttt" value="3">
+                                        <input type="radio" class="custom-control-input" id="payment-3" name="id_pttt" value="3" require >
                                         <label class="custom-control-label" for="payment-3">Thẻ ngân hàng(Bảo trì)</label>
                                     </div>
-                                    <div class="payment-content" id="payment-3-show">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
-                                        </p>
-                                    </div>
+                                    
                                 </div>
                                
                             </div>
@@ -159,16 +163,18 @@
                                 </div>
                                 <!-- ------------------------------------------------------------------------------------------------------------- -->
                             <div class="checkout-btn tieude" >
-                                <a href="index.php?act=taikhoan"><input type="submit" value="Đặt hàng " name="dathang"  class="nhap dathang"></a>
+                                <a href="index.php?act=taikhoan"><input type="submit" value="Đặt hàng " name="dathang"  class="nhap dathang" onclick="check()"></a>
                                 
                             </div>
                         </div>
                     </div>
                 </div>
+               
                 </form>
             </div>
         </div>
         <!-- Checkout End -->
+        
         
         
        

@@ -1,7 +1,7 @@
 <?php
 $getCountAccounts = count(  loadall_dangky());
 $getCountCategories = count( loadall_danhmuc());
-$getCountProduct = count(loadall_spkobt());
+$getCountProduct = count(loadall_spkbt());
 $getCountOrders = count(loadall_donhang());
 
 ?>

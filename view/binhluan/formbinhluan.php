@@ -20,13 +20,19 @@ $dsbl=loadall_binhluan($idpro);
 
 <div class="reviews-submit">
                 
-<table>
+<table> 
+    <tr>
+        <td>Tên khách hàng</td>
+        <td>bình luận</td>
+        <td>ngày bình luận</td>
+    </tr>
                      <?php
                     //  echo "nội dung bình luận".$idpro;
                      foreach ($dsbl as $bl) {
           
                       ?>
                         <tr>
+                        <td><?php echo $bl['name']?></td>
                             <td><?php echo $bl['noidung']?></td>
                              <td><?php echo $bl['ngaybinhluan']?></td>
                         </tr>

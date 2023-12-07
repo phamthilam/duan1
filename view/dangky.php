@@ -42,7 +42,17 @@
                                 <div class="col-md-12">
                                 <div><input type="submit" name="dangky" value="Đăng ký"></div>
                                 </div>
-                                <?php if(isset($thongbao)&&($thongbao!="")) echo $thongbao; ?>
+                                <?php 
+                        if (isset($_SESSION['error'])) {
+                            echo '<div class="alert alert-danger">';
+                            foreach ($_SESSION['error'] as $key => $value) {
+                                echo '<li>' . $value . '</li>';
+                            }
+                            echo '</div>';
+                            
+                        } 
+                        
+                    ?> 
                                 </form>
                             </div>
                             

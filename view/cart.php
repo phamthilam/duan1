@@ -135,13 +135,13 @@
                         
                         
                                  foreach ($_SESSION['giohang'] as $item){
-                                    $pvc=$tong+100000;
+                                    $tt=$tong+100000;
                                     echo'
                                     <p>'.$item[2].' <span>'.$item[3].' </span> | X'.$item[4].'</p>';
                                  } ?>
                                 <p>Phí vận chuyển<span>100000</span></p>
                                
-                               <h4>Thành tiền<span><?=$pvc?> </span></h4>
+                               <h4>Thành tiền<span><?php if(isset($item)){echo $tt; }?> </span></h4>
                            </div>
                             <div class="cart-btn">
                             <a href="index.php?act=checkout"><button>Thủ tục thanh toán</button></a>

@@ -8,7 +8,7 @@
                                         <th>Id</th>
                                         <th>Tên mã giảm giá </th>
                                         <th>Số tiền giảm giá</th>
-                                        <th>Ngày hết hạn</th>
+                                        
                                         <th>Số lượng</th>
                                         <th>Xóa</th>
                                     </tr>
@@ -23,7 +23,7 @@
                                         <td>'.$id.'</td>
                                         <td>'.$name_magg.'</td>
                                         <td>'.$giamgia.'</td>
-                                        <td>'.$end_date.'</td>
+                                        
                                         <td>'.$soluong.'</td>
                                         <td><a href="'.$xoavc.'"><input type="button" value="Xóa" class="button-in"></a></td>
                                     </tr>

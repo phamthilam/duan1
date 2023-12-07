@@ -32,6 +32,12 @@ function loadall_spkobt($kyw,$iddm=0){
     return $listsanpham;;
     
 }
+function loadall_spkbt(){
+    $sql="SELECT * FROM sanpham WHERE is_delete=0 ";
+    $listsanpham=pdo_query($sql);
+    return $listsanpham;;
+    
+}
 function loadall_sanpham($kyw="",$iddm=0){
     $sql="select * from sanpham join spbienthe on sanpham.id=spbienthe.id_sp 
     join sizesp on sizesp.idsize=spbienthe.id_size
@@ -84,5 +90,5 @@ function update_sanpham($masp,$tensp,$img,$gia,$mota,$luotxem,$id_dm,$idsize,$id
         // $sql.="AND is_delete=0";
         $listsanpham=pdo_query($sql);
         return $listsanpham;
-    }
+    } 
 ?>

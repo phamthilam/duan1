@@ -33,7 +33,6 @@
                                     
                                 
                                     <?php 
-                                    
                                     if(isset($_SESSION['user']['id'])&&($_SESSION['user']['id']>0)){
                                 
                                         $billinfo=getbillinfo($_SESSION['user']['id']);
@@ -74,17 +73,32 @@
                                                 echo $txtmess;
                                                 ?></td>
                                                  <td><?=$bill['total']?></td>  
-                                                
-                                                <td><a href="index.php?act=chitietdh&id=<?php echo $bill['id']?>">Chi tiết đơn hàng</a></td> </tr>
+                                               
+                                                <td><a href="index.php?act=chitietdh&id=<?php echo $bill['id']?>">Chi tiết đơn hàng</a></td> 
+                                                 <?php
+                                                if ($bill['idtrangthai'] == 1) {
+                                                    ?>
+                                                    <td><a href="index.php?act=huydh&id=<?php echo $bill['id']?>">hủy đơn hàng</a></td>
+                                                    <?php
+                                                }
+                                                ?>
                                                 <?php
                                             }?>
-                                            
+                                            </tr>
                                         </tbody>
                                     </table>
                                     <?php } } else{
                                         echo'<h2>Lịch sử mua hàng trống.</h2><a href=""><h5>Tiếp tục đặt hàng</h5></a>';
                                     }
                                     ?>
+                                    <?php
+                                    foreach ($_SESSION['giohang'] as $item) {
+                                        ?>
+                                        <input type="hidden" name="soluong" value=<?php echo $item[4]?>>
+                                        <?php
+                                    }
+                                    ?>
+                                    
                                 </div>
                             </div>
                             

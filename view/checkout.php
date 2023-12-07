@@ -116,6 +116,18 @@
                             <div class="col-md-6">
                                     <input type="hidden" name="total" value="<?php echo $pvc?>">
                                     <input type="hidden" name="thanhtien" value="<?php echo $thanhtien?>">
+                                    <?php
+                                    foreach ($_SESSION['giohang'] as $item) {
+                                        ?>
+                                        <input type="hidden" name="id_sp" value="<?php echo $item[0]?>">
+                                       
+                                        <input type="hidden" name="id_size" value="<?php echo $item[5]?>">
+                                        <input type="hidden" name="id_mau" value="<?php echo $item[6]?>">
+                                        <?php
+                                    }
+                                    
+                                    ?>
+                                   
                                 </div>
                             <div class="checkout-btn">
                                 <a href="index.php?act=taikhoan"><input type="submit" value="Đặt hàng " name="dathang" ></a>

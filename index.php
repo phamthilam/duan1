@@ -158,6 +158,8 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                         $gia=$_POST['gia'];
                         $id_size = $_POST['size'];
                         $id_mau = $_POST['mau'];
+                     
+   
                         if(isset($_POST['soluong'])&&($_POST['soluong']>0)){
                             
                             $soluong=$_POST['soluong'];
@@ -173,7 +175,8 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                             if ($mau['idmau'] == $id_mau) {
                                 $name_mau = $mau['mau'];
                             }
-                        }
+                        }  
+                          $id_bt=getspbt($id_sp,$id_size,$id_mau)['id_bt'];
                         $fg=0;
                         //ktra sp trùng thì cập nhật sl
                         $i=0;
@@ -190,13 +193,11 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                         
                         //khởi tạo mảng con
                         if($fg==0){
-                            $item=array($id_sp,$img,$tensp,$gia,$soluong,$id_size,$id_mau,$name_size,$name_mau);
+                            $item=array($id_sp,$img,$tensp,$gia,$soluong,$id_size,$id_mau,$name_size,$name_mau,$id_bt);
                             $_SESSION['giohang'][]=$item;
                         }
-                      
-                        
                     }
-                    
+                 var_dump($item);
                     include "view/cart.php";
                 }
                 
@@ -211,6 +212,19 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                 $dh=getbill($id_user);
                 include "view/chitietdh.php";
             break;
+            case 'huydh':
+                if (isset($_GET['id'])&& ($_GET['id']>0) ) {
+                    $idbill=$_GET['id'];
+                    $listbt= getbt_cart($idbill);
+                    foreach ($listbt as $id_bt) {
+                          $soluong=getsoluong($idbill,$id_bt['id_spbt']);
+                     $huy= huydh($idbill,$soluong['soluong'],$id_bt['id_spbt'] );
+                    }
+                 
+                }
+                
+                include "view/my-account.php";
+                break;
             case 'delcart':
                 //xóa all
                 // if(isset($_POST['idcart'])){
@@ -246,19 +260,21 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                    
                     $ngaydathang=date("Y-m-d ");
                     $total=$_POST['total'];
-                    
+                    // $id_sp=$_POST['id_sp'];
+                    // $id_size=$_POST['id_size'];
+                    // $id_mau=$_POST['id_mau'];
+                    // $item[9]=getspbt($id_sp,$id_size,$id_mau)['id_bt'];
                     $id_bill=insert_bill($id_user,$bill_name,$bill_diachi,$bill_sdt,$bill_email,$id_pttt,$ngaydathang,$total);
                     $_SESSION['id_bill']=$id_bill;
                     if(isset($_SESSION['giohang'])&&(count($_SESSION['giohang'])>=0)){
                         foreach($_SESSION['giohang'] as $item){
-                            addtocart($id_user,$item[0],$item[1],$item[2],$item[3],$item[4],$id_bill,$item[5],$item[6],$item[7],$item[8]);
+                            addtocart($id_user,$item[0],$item[1],$item[2],$item[3],$item[4],$id_bill,$item[5],$item[6],$item[9]);
                         }
                         unset($_SESSION['giohang']);
                         header('location: index.php?act=taikhoan');
                     }
-
+                    
                 }
-                
                 include "view/checkout.php";
             
             break;

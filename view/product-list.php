@@ -26,16 +26,17 @@
                                 <div class="product-item">
                                     <div class="product-image">
                                         <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>">
-                                            <img src="upload/<?php echo $sp['img']?>" alt="Product Image">
+                                            <img src="upload/<?php echo $sp['img']?>" alt="Product Image"  height="240px">
                                         </a>
                                         <div class="product-action">
                                         
                                             <a href="#"><i class="fa fa-heart"></i></a>
                                             <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><i class="fa fa-search"></i></a>
+                                            <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><i class="fa fa-cart-plus"></i></a>
                                             <form action="index.php?act=addcart" method="post">
                                         
                                         <input type="hidden" name="id_user" value="<?php echo $tk['id_user']?>">
-                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id_sp']?>">
+                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id']?>">
                                                 <input type="hidden" name="img" value="<?php echo $sp['img']?>">
                                                 <input type="hidden" name="tensp" value="<?php echo $sp['tensp']?>">
                                                 <input type="hidden" name="gia" value="<?php echo $sp['gia']?>">
@@ -51,7 +52,7 @@
                                                <input type="hidden" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
                                                <?php
                                         }?>
-                                              <input class="clickmua" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                              
                                               </form>
                                         </div>
                                     </div>
@@ -335,13 +336,13 @@
                             </ul>
                         </div>
                         
-                        <div class="sidebar-widget brands">
+                        <div class="col-md-30">
                             <h2 class="title">Sản phẩm top 10</h2>
-                            <ul>
+                            <ul >
                             <?php 
                                 foreach ($sptop10 as $sp) {
                                     ?>
-                                    <li><a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><?php echo $sp['tensp']?></a></li>
+                                    <li ><a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><?php echo $sp['tensp']?></a></li>
                                     <?php
                                 }
                                 ?>

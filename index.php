@@ -13,7 +13,7 @@ include "model/dangky.php";
 include "model/danhmuc.php";
 include "model/sanpham.php";
 include "model/donhang.php";
-$sphome= loadall_sanpham();
+$sphome= loadall_spkobt($kyw="",$iddm=0);
 $sptop10=load_sanpham_top10();
 $listsize=loadall_size();
 $listmau=loadall_mau();
@@ -32,7 +32,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                $iddm=0;
             }
                 $listdm=loadall_danhmuc();
-              $sphome= loadall_sanpham($kyw,$iddm);
+              $sphome= loadall_spkobt($kyw,$iddm);
                 $sptop10=load_sanpham_top10();
                 
                 include "view/product-list.php";
@@ -110,7 +110,9 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
         case 'chinhsach ':
                 include "view/chinhsach.php";
                 break;
-                case 'gioithieu':
+        case 'gioithieu':
+            $sql="select * from magiamgia where is_delete=1";
+            $mgg=pdo_query_one($sql);
                     include "view/gioithieu.php";
                     break;
                     
@@ -176,7 +178,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                                 $name_mau = $mau['mau'];
                             }
                         }  
-                          $id_bt=getspbt($id_sp,$id_size,$id_mau)['id_bt'];
+                        $id_bt=getspbt($id_sp,$id_size,$id_mau)['id_bt'];
                         $fg=0;
                         //ktra sp trùng thì cập nhật sl
                         $i=0;
@@ -197,7 +199,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                             $_SESSION['giohang'][]=$item;
                         }
                     }
-                 var_dump($item);
+                 
                     include "view/cart.php";
                 }
                 
@@ -250,6 +252,23 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                     }
              break;
              case 'checkout':
+                $tt=0;
+                if (isset($_POST['apdungma']) && ($_POST['apdungma'])) {
+                    $name_magg = $_POST['name_magg'];
+                    $checkmagg;
+                     $sql = "SELECT * FROM magiamgia WHERE name_magg ='$name_magg' AND is_delete=1";
+                     $checkmagg = pdo_query_one($sql); 
+                     if (is_array($checkmagg)) {
+                        $sql = "UPDATE magiamgia SET soluong =soluong-1 WHERE name_magg ='$name_magg'";
+                        pdo_execute($sql);
+                        $sql="update magiamgia set is_delete=0 where soluong=0";
+                        pdo_execute($sql);
+                        $thongbao = "Nhập mã giảm giá thành công";
+                    } else {
+                        $thongbao = "Mã giảm giá này không tồn tại";
+                    }
+
+                       } 
                 if(isset($_POST['dathang'])&&($_POST['dathang'])){
                     $id_user=$_SESSION['user']['id'];
                     $bill_name=$_POST['bill_name'];

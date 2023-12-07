@@ -124,12 +124,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="coupon">
-                            <input type="text" placeholder="Mã giảm giá">
-                            <button>Áp dụng mã</button>
-                        </div>
-                    </div>
+                    
                    
                     <div class="col-md-6">
                         <div class="cart-summary">

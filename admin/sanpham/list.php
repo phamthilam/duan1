@@ -19,7 +19,7 @@
                     ?>
                     
                 </select>
-                <input type="submit" value="GO" name="listok">
+                <input type="submit" value="lọc" name="listok">
                 </form>
 <table class="table table-bordered">
     <thead class="thead-dark">

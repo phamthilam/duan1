@@ -12,10 +12,7 @@ if(is_array($dh)){
                                 <h2 class="adm">Update bill</h2>
                             </div>
                            <form action="index.php?act=updatedh" method="post" class="khung2" >
-                                <div class="adm">
-                                    Tên tài khoản<br>
-                                    <input type="text" name="id_user"  value="<?php echo $id_user?>" class="form-control" disabled>
-                                </div>
+                                
                                 <div class="adm">
                                     Tên người đặt hàng<br>
                                     <input type="text" name="bill_name" class="form-control"  value="<?php echo $bill_name?>" disabled>
@@ -32,16 +29,7 @@ if(is_array($dh)){
                                     Email<br>
                                     <input type="email" name="bill_email" class="form-control"  value="<?php  echo $bill_email?>" disabled>
                                 </div>
-                                <div class="adm">
-                                    Phương thức thanh toán 
-                                    <select name="idpttt" id="" class="form-select" disabled>
-                                        <?php foreach ($listpttt as $pttt) {
-                                           ?>
-                                        
-                                        <option value="<?php echo $pttt['id'] ?>" ><?php echo $pttt['pttt']?></option>
-                                        <?php
-                                    }?></select>
-                                </div>
+                                
                                 <div class="adm">
                                     Trạng thái 
                                     <select name="idtrangthai" id="" class="form-select">
@@ -60,16 +48,7 @@ if(is_array($dh)){
                                    Thành tiền<br>
                                     <input type="text" name="total" class="form-control"  value="<?php echo $total?>" disabled>
                                 </div>
-                                <div class="adm">
-                                   Mã giảm giá 
-                                   <select name="magiamgia" id="" class="form-select">
-                                        <?php foreach ($listmgg as $mgg) {
-                                           ?>
-                                        
-                                        <option value="<?php echo $mgg['id'] ?>"><?php echo $mgg['name_magg']?></option>
-                                        <?php
-                                    }?></select>
-                                </div>
+                               
                                 <div class="adm">
                                     <input type="hidden" name="id" value="<?php echo $id ?>">
                                 <a href="index.php?act=listdh "><input type="submit" name="capnhat"  value="Cập nhật" class="nhap"></a>

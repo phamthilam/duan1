@@ -15,7 +15,7 @@
                                         <th>Trạng thái</th>
                                         <th>Ngày đặt</th>
                                         <th>Thành tiền</th>
-                                        <th>Mã giảm giá</th>
+                                       
                                         <th>Tùy chọn</th>
                                     </tr>
                                 </thead>
@@ -50,7 +50,7 @@
                                         <td><?php echo $trangthai?> </td>
                                         <td><?php echo $ngaydathang?> </td>
                                         <td><?php echo $total?> </td>
-                                        <td><?php echo $magiamgia?> </td>
+                                      
                                         
                                         <td><a href="index.php?act=suabill&id=<?php echo $id ?> "><input type="button" value="Sửa" class="button-in"></a></td>
                                     </tr>

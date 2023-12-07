@@ -18,6 +18,11 @@
         <div class="checkout">
             <div class="container"> 
                 
+            <form action="index.php?act=checkout" method="post" class="khungmagg">
+                            <input type="text" name="name_magg" placeholder="Mã giảm giá" class="magg">
+                            <input type="submit" name="apdungma" value="Áp dụng mã" class="nhap">
+                            <?= isset($thongbao) ? $thongbao : '' ?>
+                            </form>
             <form action="index.php?act=checkout" method="post">
                 
                 <div class="row">
@@ -45,7 +50,6 @@
                                 </div>
                                 
                                 
-                               
                             </div>
                             
                         </div>
@@ -55,24 +59,59 @@
                     
                     <div class="col-md-5">
                         <div class="checkout-summary">
-                            
+                             <!-- -----------------------------------------------------magg-------------------------------------------------------- -->
                             <div class="checkout-content">
                                 <h3>Sản phẩm </h3>
                                 
-                                 <?php 
-                                 $tong=0;
+                                 
+                                
+                                <?php 
+                                $tong=0;
+                                if (isset($_POST['apdungma']) && ($_POST['apdungma'])) {
+                                    
+                                    $pvc=0;
                                  foreach ($_SESSION['giohang'] as $item){
                                     $thanhtien=$item[3]*$item[4];
                                     $tong+=$thanhtien;
-                                    $pvc=$tong+100000;
+                                    $tt=$tong+100000;
+                                    if(isset($checkmagg['giamgia'])){$pvc=$tt-$checkmagg['giamgia'];}
                                     echo'
                                     <p>'.$item[2].' <span>'.$item[3].' </span> | X'.$item[4].'</p>';
                                  } ?>
                                 <p>Phí vận chuyển<span>100000</span></p>
-                                <!-- <p class="sub-total">Sub Total<span>$22</span></p>
-                                <p class="ship-cost">giảm giá<span>$1</span></p> -->
-                                <h4>Thành tiền<span><?=$pvc?></span></h4>
+                                
+                                <p class="">Giảm giá<span><?php if(isset($checkmagg['giamgia'])){
+                                    if (isset($_POST['apdungma']) && ($_POST['apdungma'])) {
+                                    echo $checkmagg['giamgia'];}}else{echo "0đ";} ?></span></p>
+                               <h4>Thành tiền<span><?php if(isset($checkmagg['giamgia'])){
+                                                            echo $pvc;
+                                                        }else{
+                                                            echo $tt;
+                                                            
+                               }
+                                } else{
+                                    
+                                    foreach ($_SESSION['giohang'] as $item){
+                                        $thanhtien=$item[3]*$item[4];
+                                        $tong+=$thanhtien;
+                                        $tt=$tong+100000;
+                                       
+                                       echo'
+                                       <p>'.$item[2].' <span>'.$item[3].' </span> | X'.$item[4].'</p>';
+                                    } ?>
+                                   <p>Phí vận chuyển<span>100000</span></p>
+                                   
+                                   <p class="">Giảm giá<span>0đ</span></p>
+                                  <h4>Thành tiền<span><?php 
+                                   echo $tt;
+                                  
+                                }
+                        
+                                     ?> </span></h4>
+                                   
+                                
                             </div>
+                             <!-- ------------------------------------------------------------------------------------------------------------- -->
                         </div>
                         
                         <div class="checkout-payment">
@@ -80,7 +119,7 @@
                             <div class="payment-methods">
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-1" name="id_pttt"  value="1">
+                                        <input type="radio" class="custom-control-input" id="payment-1" name="id_pttt"  value="1" require>
                                         <label class="custom-control-label" for="payment-1" >Thanh toán khi nhận hàng</label>
                                     </div>
                                     <div class="payment-content" id="payment-1-show">
@@ -91,7 +130,7 @@
                                 </div>
                                 <div class="payment-method">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="payment-2" name="id_pttt" value="2">
+                                        <input type="radio" class="custom-control-input" id="payment-2" name="id_pttt" value="2" require>
                                         <label class="custom-control-label" for="payment-2">Thanh toán oline qua VNPAY</label>
                                     </div>
                                     <div class="payment-content" id="payment-2-show">
@@ -113,24 +152,15 @@
                                 </div>
                                
                             </div>
+                             <!-- ------------------------------------------------------magg------------------------------------------------------- -->
                             <div class="col-md-6">
-                                    <input type="hidden" name="total" value="<?php echo $pvc?>">
+                                    <input type="hidden" name="total" value="<?php if(isset($checkmagg['giamgia'])){ echo $pvc; }else{echo $tt;}?>">
                                     <input type="hidden" name="thanhtien" value="<?php echo $thanhtien?>">
-                                    <?php
-                                    foreach ($_SESSION['giohang'] as $item) {
-                                        ?>
-                                        <input type="hidden" name="id_sp" value="<?php echo $item[0]?>">
-                                       
-                                        <input type="hidden" name="id_size" value="<?php echo $item[5]?>">
-                                        <input type="hidden" name="id_mau" value="<?php echo $item[6]?>">
-                                        <?php
-                                    }
-                                    
-                                    ?>
-                                   
                                 </div>
-                            <div class="checkout-btn">
-                                <a href="index.php?act=taikhoan"><input type="submit" value="Đặt hàng " name="dathang" ></a>
+                                <!-- ------------------------------------------------------------------------------------------------------------- -->
+                            <div class="checkout-btn tieude" >
+                                <a href="index.php?act=taikhoan"><input type="submit" value="Đặt hàng " name="dathang"  class="nhap dathang"></a>
+                                
                             </div>
                         </div>
                     </div>

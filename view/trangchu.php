@@ -135,10 +135,11 @@
                                         
                                             <a href="#"><i class="fa fa-heart"></i></a>
                                             <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><i class="fa fa-search"></i></a>
+                                            <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><i class="fa fa-cart-plus"></i></a>
                                             <form action="index.php?act=addcart" method="post">
                                         
-                                        <input type="hidden" name="id_user" value="<?php echo $tk['id_user']?>">
-                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id_sp']?>">
+                                        
+                                            <input type="hidden" name="id_user" value="<?php echo $tk['id_user']?>">
                                                 <input type="hidden" name="img" value="<?php echo $sp['img']?>">
                                                 <input type="hidden" name="tensp" value="<?php echo $sp['tensp']?>">
                                                 <input type="hidden" name="gia" value="<?php echo $sp['gia']?>">
@@ -154,7 +155,7 @@
                                                <input type="hidden" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
                                                <?php
                                         }?>
-                                              <input class="clickmua" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                             <!-- <input class="clickmua" type="button" name="addtocart"  value="Thêm vào giỏ hàng"> -->
                                               </form>
                                         </div>
                                     </div>
@@ -321,10 +322,11 @@
                                 
                                     <a href="#"><i class="fa fa-heart"></i></a>
                                     <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><i class="fa fa-search"></i></a>
+                                    <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><i class="fa fa-cart-plus"></i></a>
                                     <form action="index.php?act=addcart" method="post">
                                         
                                         <input type="hidden" name="id_user" value="<?php echo $tk['id_user']?>">
-                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id_sp']?>">
+                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id']?>">
                                                 <input type="hidden" name="img" value="<?php echo $sp['img']?>">
                                                 <input type="hidden" name="tensp" value="<?php echo $sp['tensp']?>">
                                                 <input type="hidden" name="gia" value="<?php echo $sp['gia']?>">
@@ -340,7 +342,7 @@
                                                <input type="hidden" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
                                                <?php
                                         }?>
-                                              <input class="clickmua" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                              
                                               </form>
                                 </div>
                             </div>

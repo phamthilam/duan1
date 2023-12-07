@@ -44,7 +44,7 @@
                                         <h4>Số lượng:</h4>
                                         <div class="qty">
                                             <!-- <button class="btn-minus"><i class="fa fa-minus"></i></button> -->
-                                            <input type="number" value="1" name="soluong" min="1">
+                                            <input type="number" value="1" name="soluong" min="1" max="<?php echo $sp['soluong']?>">
                                             <!-- <button class="btn-plus"><i class="fa fa-plus"></i></button> -->
                                         </div><br>
                                       
@@ -134,20 +134,21 @@
                         <div class="row align-items-center product-slider product-slider-3">
                             <?php foreach ($listspcungloai as $sp) {
                                 ?>
-                                 <div class="col-lg-3">
+                                 <div class="col-lg-12">
                                 <div class="product-item">
                                     <div class="product-image">
-                                        <a href="product-detail.php">
+                                        <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>">
                                             <img src="upload/<?php echo $sp['img'] ?>" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             
                                             <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a href="product-detail.php"><i class="fa fa-search"></i></a>
+                                            <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id']?>"><i class="fa fa-search"></i></a>
+                                            <a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><i class="fa fa-cart-plus"></i></a>
                                             <form action="index.php?act=addcart" method="post">
                                         
-                                        <input type="hidden" name="id_user" value="<?php echo $tk['id_user']?>">
-                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id_sp']?>">
+                                            <input type="hidden" name="id_user" value="<?php echo $tk['id_user']?>">
+                                            <input type="hidden" name="id_sp" value="<?php echo $sp['id']?>">
                                                 <input type="hidden" name="img" value="<?php echo $sp['img']?>">
                                                 <input type="hidden" name="tensp" value="<?php echo $sp['tensp']?>">
                                                 <input type="hidden" name="gia" value="<?php echo $sp['gia']?>">
@@ -163,12 +164,12 @@
                                                <input type="hidden" name="mau" id="color<?php echo $mau['idmau']?>" value="<?php echo $mau['idmau']?>">
                                                <?php
                                         }?>
-                                              <input class="clickmua" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                              
                                               </form>
                                         </div>
                                     </div>
                                     <div class="product-content">
-                                        <div class="title"><a href="product-detail.php"><?php echo $sp['tensp']?></a></div>
+                                        <div class="title"><a href="index.php?act=sanphamct&idsp=<?php echo $sp['id'] ?>"><?php echo $sp['tensp']?></a></div>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -281,7 +282,7 @@
                             </ul>
                         </div>
                         
-                        <div class="sidebar-widget brands">
+                        <div class="col-md-23">
                             <h2 class="title">Sản phẩm top 10</h2>
                             <ul>
                             <?php 

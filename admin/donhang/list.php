@@ -52,7 +52,7 @@
                                         <td><?php echo $total?> </td>
                                       
                                         
-                                        <td><a href="index.php?act=suabill&id=<?php echo $id ?> "><input type="button" value="Sửa" class="button-in"></a></td>
+                                        <td><a href="index.php?act=suabill&id=<?php echo $id ?> " ><input type="button" value="Sửa" class="btn btn-danger"></a></td>
                                     </tr>
                                     
                                 </tbody>;

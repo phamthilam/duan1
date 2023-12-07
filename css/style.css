@@ -1857,7 +1857,7 @@ button.btn {
     height: 40px;
 }
 .nhap:hover{
-    background: orange;
+    background: white;
     color: #4977bf;
     border: 2px #4977bf solid ;
 }

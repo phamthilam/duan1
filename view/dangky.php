@@ -40,7 +40,7 @@
                                 </div>
                                 
                                 <div class="col-md-12">
-                                <div><input type="submit" name="dangky" value="Đăng ký"></div>
+                                <div><input type="submit" name="dangky" value="Đăng ký" class="btn btn-primary"></div>
                                 </div>
                                 <?php 
                         if (isset($_SESSION['error'])) {

@@ -30,8 +30,8 @@
                                         <td>'.$email.'</td>
                                         <td>'.$sdt.'</td>
                                         <td>'.$diachi.'</td>
-                                        <td><a href="'.$xoadk.'"><input type="button" value="Xóa" class="button-in"></a>
-                                        <a href="'.$suadk.'"><input type="button" value="Sửa" class="button-in"></a></td>
+                                        <td><a href="'.$xoadk.'" ><input type="button" value="Xóa" class="btn btn-danger"></a>
+                                       
                                     </tr>
                                     
                                 </tbody>';

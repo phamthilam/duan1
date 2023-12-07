@@ -149,9 +149,10 @@ if (isset($_GET['act'])) {
                     $listbl=loadall_binhluan(0);
                     include "binhluan/list.php";
                     break;
-                    case 'xoabl':
+                case 'xoabl':
                         if(isset($_GET['id']) && ($_GET['id']>0)){
-                               delete_binhluan($_GET['id']);
+                            $id=$_GET['id'];
+                               delete_binhluan($id);
                                 }
                                $listbl=loadall_binhluan(0);
                                include "binhluan/list.php";

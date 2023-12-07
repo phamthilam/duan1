@@ -21,12 +21,12 @@
     <?php foreach ($listbl as $bl) {
     ?>
     <tr>
-        <td><?php echo $bl['id']?></td>
+        <td><?php echo $bl['id_bl']?></td>
         <td><?php echo $bl['noidung']?></td>
         <td><?php echo $bl['id_user']?></td>
         <td><?php echo $bl['id_sp']?></td>
         <td><?php echo $bl['ngaybinhluan']?></td>
-        <td><a href="index.php?act=xoabl&id=<?php echo $bl['id']?>"><input type="button" value="Xóa"></a></td>
+        <td><a href="index.php?act=xoabl&id=<?php echo $bl['id_bl']?>"><input type="button" class="btn btn-danger" value="Xóa"></a></td>
     </tr>
     <?php
     }?>

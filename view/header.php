@@ -32,7 +32,7 @@
                     <div class="col-md-3">
                         <div class="logo">
                             <a href="">
-                                <img src="img/logo.png" alt="Logo">
+                                <img src="img/logo.jpg" alt="Logo">
                             </a>
                         </div>
                     </div>

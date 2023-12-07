@@ -127,7 +127,7 @@ if (isset($_GET['act'])&&($_GET['act']!="")) {
                         header('Location: index.php');
                         include "view/trangchu.php";
                         break;
-        case 'chinhsach ':
+        case 'chinhsach':
                 include "view/chinhsach.php";
                 break;
         case 'gioithieu':

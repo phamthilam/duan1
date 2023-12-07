@@ -25,7 +25,7 @@
                                         <td>'.$giamgia.'</td>
                                         
                                         <td>'.$soluong.'</td>
-                                        <td><a href="'.$xoavc.'"><input type="button" value="Xóa" class="button-in"></a></td>
+                                        <td><a href="'.$xoavc.'"><input type="button" value="Xóa" class="btn btn-danger"></a></td>
                                     </tr>
                                     
                                 </tbody>';
@@ -35,7 +35,7 @@
                                 ?>
                             </table>
                             <div>
-                                    <a href="index.php?act=addvc"><input type="submit" name="themmoi" value="Thêm mới" ></a> 
+                                    <a href="index.php?act=addvc"><input type="submit" name="themmoi" value="Thêm mới" class="btn btn-primary"></a> 
                             </div>
                         </div>
                     </div>

@@ -20,8 +20,8 @@
     <tr>
         <td><?php echo $dm['id']?></td>
         <td><?php echo $dm['name_dm']?></td>
-        <td><a href="index.php?act=suadm&id=<?php echo $dm['id']?>"><input type="button" value="Sửa"></a></td>
-        <td><a href="index.php?act=xoadm&id=<?php echo $dm['id']?>"><input type="button" value="Xóa"></a></td>
+        <td ><a href="index.php?act=suadm&id=<?php echo $dm['id']?>"><input type="button" value="Sửa" class="btn btn-danger"></a></td>
+        <td><a href="index.php?act=xoadm&id=<?php echo $dm['id']?>"><input type="button" value="Xóa" class="btn btn-danger"></a></td>
     </tr>
     <?php
     }?>

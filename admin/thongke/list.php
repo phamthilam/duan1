@@ -30,7 +30,5 @@
                     }
                     ?>
                 </table>
-            </div>
-                <a href="index.php?act=bieudo" class="mr211"><input class="mr21" type="button" value="Xem biểu đồ" name="" id=""></a>
-            </div>
+            
         </div>

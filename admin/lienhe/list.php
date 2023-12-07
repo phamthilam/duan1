@@ -29,7 +29,7 @@
                                         <td>'.$lh_email.'</td>
                                         <td>'.$lh_sdt.'</td>
                                         <td>'.$lh_noidung.'</td>
-                                        <td><a href="'.$xoalh.'"><input type="button" value="Xóa" class="button-in"></a></td>
+                                        <td><a href="'.$xoalh.'"><input type="button" value="Xóa" class="btn btn-danger"></a></td>
                                     </tr>
                                     
                                 </tbody>';
